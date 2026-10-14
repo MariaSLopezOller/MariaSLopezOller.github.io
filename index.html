@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>María S. López Oller</title>
+<meta name="description" content="CV of María S. López Oller: analytics and data &amp; AI governance">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a dark "chart paper" hero carrying the career drawn to scale, then a sticky sidebar of skills beside the experience column. */
+:root{
+  --paper:#f3f6f5;
+  --surface:#ffffff;
+  --ink:#122a2e;
+  --muted:#5a6e71;
+  --rule:#d6e1df;
+  --accent:#0d7c74;
+  --accent-soft:#dcefeb;
+  --uk:#8a5cc4;
+  --band:#0d3238;
+  --band-ink:#e8f4f1;
+  --band-muted:#8fb3ad;
+  --band-grid:rgba(143,179,173,.14);
+  --mint:#7fe3c8;
+  --lilac:#c4a6f0;
+  --f-display:"Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --f-body:"Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --s-2:.6875rem; --s-1:.8125rem; --s0:1rem; --s1:1.1875rem; --s2:1.625rem; --s3:2.25rem; --s4:clamp(2.6rem, 8vw, 5.25rem);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --paper:#0b1517; --surface:#112023; --ink:#e2eeec; --muted:#93a9a6; --rule:#213436;
+    --accent:#5fd3bf; --accent-soft:#163a37; --uk:#b996ec;
+    --band:#0f2a2f; --band-grid:color-mix(in srgb,var(--band-muted) 10%,transparent);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --paper:#0b1517; --surface:#112023; --ink:#e2eeec; --muted:#93a9a6; --rule:#213436;
+  --accent:#5fd3bf; --accent-soft:#163a37; --uk:#b996ec;
+  --band:#0f2a2f; --band-grid:color-mix(in srgb,var(--band-muted) 10%,transparent);
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:var(--s0);line-height:1.6;padding-inline:16px}
+.page{max-width:1080px;margin:0 auto;padding-block:20px 64px;display:grid;gap:48px}
+a{color:inherit;text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0}
+p{margin:0}
+body.lang-en [lang="es"], body.lang-es [lang="en"]{display:none!important}
+
+/* ---------- hero ---------- */
+.hero{
+  background:
+    linear-gradient(var(--band-grid) 1px, transparent 1px) 0 0/100% 32px,
+    linear-gradient(90deg, var(--band-grid) 1px, transparent 1px) 0 0/32px 100%,
+    radial-gradient(ellipse 70% 90% at 100% 0%, color-mix(in srgb,var(--mint) 16%,transparent), transparent 60%),
+    var(--band);
+  color:var(--band-ink);border-radius:24px;padding:clamp(22px,4vw,48px);
+  display:grid;gap:36px;overflow:hidden;
+}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.eyebrow{font:500 var(--s-1)/1 var(--f-mono);color:var(--mint);letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 4px color-mix(in srgb,var(--mint) 20%,transparent)}
+.switch{display:inline-flex;border:1px solid color-mix(in srgb,var(--band-muted) 35%,transparent);border-radius:999px;padding:3px}
+.switch button{position:relative;font:500 var(--s-1)/1 var(--f-mono);letter-spacing:.06em;border:0;background:none;color:var(--band-muted);padding:8px 13px;border-radius:999px;cursor:pointer;transition:background .2s,color .2s}
+.switch button::after{content:"";position:absolute;inset:-8px -1px} /* 44px hit area, same look */
+.switch button:hover{color:var(--band-ink)}
+.switch button[aria-pressed="true"]{background:var(--mint);color:var(--band)}
+
+.intro{display:grid;gap:18px}
+h1{font-size:var(--s4);font-weight:800;line-height:.92;letter-spacing:-.035em;font-variation-settings:"opsz" 96}
+h1 em{font-style:normal;color:var(--mint)}
+.pitch{font-size:var(--s1);color:var(--band-muted);max-width:52ch;line-height:1.5}
+.pitch strong{color:var(--band-ink);font-weight:500}
+.contact{display:flex;flex-wrap:wrap;gap:8px}
+.contact > *{display:inline-flex;align-items:center;min-height:44px;font-size:var(--s-1);border:1px solid color-mix(in srgb,var(--band-muted) 30%,transparent);border-radius:999px;padding:6px 15px;text-decoration:none;color:var(--band-ink);transition:border-color .2s, background .2s}
+.contact a:hover{border-color:var(--mint);background:color-mix(in srgb,var(--mint) 8%,transparent)}
+
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+/* career chart: x = 2016.0 → 2027.0 (11 years); today = Oct 2026 */
+.chart{display:grid;gap:10px}
+.chart-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font:400 var(--s-2)/1.4 var(--f-mono);color:var(--band-muted);letter-spacing:.06em;text-transform:uppercase}
+.legend{display:flex;gap:16px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend span::before{content:"";width:10px;height:10px;border-radius:2px;background:var(--mint)}
+.legend .k-uk::before{background:var(--lilac)}
+.legend .k-study::before,.bar.study{background:repeating-linear-gradient(135deg,var(--band-ink) 0 2px,transparent 2px 5px);box-shadow:inset 0 0 0 1px var(--band-ink)}
+.bar.study.phased{overflow:hidden;background:repeating-linear-gradient(135deg,color-mix(in srgb,var(--band-ink) 45%,transparent) 0 2px,transparent 2px 5px)}
+.bar.study.phased::after{content:"";position:absolute;inset:0 0 0 var(--split);background:var(--band-ink)} /* dissertation, full time */
+.legend{flex-wrap:wrap}
+.plot{position:relative;display:grid;gap:6px;padding-block:4px 26px}
+.plot::before{ /* yearly gridlines */
+  content:"";position:absolute;inset:0 0 22px 0;
+  background:repeating-linear-gradient(90deg, color-mix(in srgb,var(--band-muted) 22%,transparent) 0 1px, transparent 1px 9.0909%);
+}
+.lane{position:relative;height:34px}
+.bar{position:absolute;bottom:4px;left:var(--s);width:var(--w);height:10px;border-radius:5px;background:var(--mint);transform-origin:left;animation:grow .9s cubic-bezier(.2,.7,.2,1) both;animation-delay:var(--d,0s)}
+.bar.uk{background:var(--lilac)}
+.bar.live{background:linear-gradient(90deg,var(--mint) 75%,color-mix(in srgb,var(--mint) 25%,transparent))}
+.tag{position:absolute;bottom:18px;font:500 var(--s-2)/1 var(--f-mono);color:var(--band-ink);white-space:nowrap;letter-spacing:.02em}
+.tag.l{left:var(--s)} .tag.r{right:var(--r)}
+.today{position:absolute;top:0;bottom:22px;left:98.11%;width:0;border-left:1px dashed var(--mint)}
+.axis{position:absolute;left:0;right:0;bottom:0;height:16px;font:400 var(--s-2)/1 var(--f-mono);color:var(--band-muted)}
+.axis span{position:absolute;transform:translateX(-50%)}
+@keyframes grow{from{transform:scaleX(.08)}to{transform:scaleX(1)}}
+
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:color-mix(in srgb,var(--band-muted) 22%,transparent);border-radius:14px;overflow:hidden}
+.metric{background:var(--band);padding:16px 18px;display:grid;gap:2px}
+.metric b{font:800 var(--s3)/1 var(--f-display);color:var(--mint);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.metric span{font-size:var(--s-1);color:var(--band-muted);line-height:1.35}
+
+/* ---------- body grid ---------- */
+.body{display:grid;grid-template-columns:280px 1fr;gap:56px;align-items:start}
+aside{display:grid;gap:34px}
+main{display:grid;gap:52px;min-width:0}
+section{display:grid;gap:18px}
+h2{font-size:var(--s2);font-weight:600;letter-spacing:-.02em;line-height:1.1;display:flex;align-items:baseline;gap:12px}
+h2::after{content:"";flex:1;height:1px;background:var(--rule);transform:translateY(-6px)}
+aside h2{font-size:var(--s1)}
+
+.profile p{font-size:var(--s1);line-height:1.6;max-width:62ch}
+.profile p + p{color:var(--muted);font-size:var(--s0)}
+
+.skillset{display:grid;gap:22px}
+.skillset h3{font:500 var(--s-2)/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{font-size:var(--s-1);line-height:1.3;padding:5px 10px;border-radius:6px;background:var(--surface);border:1px solid var(--rule)}
+
+.list{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.list li{display:grid;gap:2px;line-height:1.4}
+.list a{justify-self:start;text-decoration-color:var(--rule);transition:text-decoration-color .2s}
+.list a:hover{text-decoration-color:var(--accent)}
+.list small{color:var(--muted);font:400 var(--s-2)/1.4 var(--f-mono);letter-spacing:.02em}
+
+.langs{display:grid;gap:12px}
+.lang{display:grid;gap:6px}
+.lang div{display:flex;justify-content:space-between;gap:8px;font-size:var(--s-1)}
+.lang div span{color:var(--muted)}
+.meter{height:5px;border-radius:3px;background:var(--rule);overflow:hidden}
+.meter i{display:block;height:100%;width:var(--v);background:var(--accent);border-radius:3px}
+
+/* experience timeline */
+.jobs{position:relative;display:grid;gap:22px}
+.job{position:relative;display:grid;gap:12px;background:var(--surface);border:1px solid var(--rule);border-radius:16px;padding:22px 24px 22px 24px}
+.job-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px 20px;flex-wrap:wrap}
+.job h3{font-size:var(--s1);font-weight:600;line-height:1.25;letter-spacing:-.01em}
+.job h3 .org{display:block;font-size:var(--s0);font-family:var(--f-body);font-weight:500;color:var(--accent);margin-top:3px;letter-spacing:0}
+.when{font:400 var(--s-2)/1.5 var(--f-mono);color:var(--muted);text-align:right;font-variant-numeric:tabular-nums;display:grid;justify-items:end;gap:4px}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:3px 9px;border-radius:999px;background:var(--accent-soft);color:var(--ink)}
+.pill::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.pill.uk::before{background:var(--uk)}
+.job.study{background:transparent;border-style:dashed}
+.pill.now::before{animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.25}}
+.ctx{color:var(--muted);font-size:.9375rem}
+.job ul{margin:0;padding-left:1.1em;display:grid;gap:7px}
+.job li{line-height:1.55}
+.job li::marker{color:var(--accent)}
+.job li b{font-weight:600}
+.stack{display:flex;flex-wrap:wrap;gap:5px;padding-top:4px}
+.stack span{font:400 var(--s-2)/1 var(--f-mono);color:var(--muted);padding:5px 7px;border-radius:4px;border:1px dashed var(--rule)}
+
+.prev{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px}
+.prev div{display:grid;gap:6px;align-content:start;padding:16px 18px;border-radius:12px;border:1px solid var(--rule)}
+.prev b{font-weight:600;line-height:1.3}
+.prev b small{display:block;font:400 var(--s-2)/1.5 var(--f-mono);color:var(--accent);margin-top:2px}
+.prev span{color:var(--muted);font-size:.9rem;line-height:1.5}
+
+
+@media (max-width:860px){
+  .body{grid-template-columns:1fr;gap:48px}
+  aside{order:2}
+  .metrics{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:480px){
+  .job{padding:18px}
+  .when{text-align:left;justify-items:start}
+  .tag .wide{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
+@media print{
+  body{padding:0;background:#fff;color:#000;font-size:9.5pt}
+  .switch,.chart{display:none}
+  .hero{background:#fff;color:#000;padding:0;border-radius:0}
+  .hero *{color:#000!important}
+  .metric{background:#fff}
+  .body{grid-template-columns:200px 1fr;gap:28px}
+  .job{break-inside:avoid;border:0;padding:0}
+}
+</style>
+
+<div class="page">
+
+<header class="hero">
+  <div class="topbar">
+    <span class="eyebrow">Analytics · Data &amp; AI Governance</span>
+    <div class="switch" role="group" aria-label="Language / Idioma">
+      <button type="button" id="btn-en" data-set="en" aria-pressed="true">EN</button>
+      <button type="button" id="btn-es" data-set="es" aria-pressed="false">ES</button>
+    </div>
+  </div>
+
+  <div class="intro">
+    <h1>María S.<br><em>López Oller</em></h1>
+    <p class="pitch" lang="en">I build <strong>data governance</strong>, quality and privacy frameworks at enterprise scale, and lead <strong>data and AI enablement</strong> so organisations can trust and use their data.</p>
+    <p class="pitch" lang="es">Construyo marcos de <strong>gobierno del dato</strong>, calidad y privacidad a escala empresarial, e impulso la <strong>capacitación en datos e IA</strong> para que las organizaciones puedan confiar en sus datos y usarlos.</p>
+    <div class="contact">
+      <a href="mailto:maria.lopez.digital@gmail.com">maria.lopez.digital@gmail.com</a>
+      <a href="https://linkedin.com/in/mariaslopezoller">LinkedIn ↗</a>
+      <a href="https://bit.ly/PortfolioMariaLopezOller">Portfolio ↗</a>
+      <span lang="en">Remote · Europe</span>
+      <span lang="es">Remoto · Europa</span>
+      <span lang="en">EU passport · UK Settled Status</span>
+      <span lang="es">Pasaporte UE · UK Settled Status</span>
+    </div>
+  </div>
+
+  <div class="chart">
+    <div class="chart-head">
+      <span lang="en">Career, to scale</span><span lang="es">Trayectoria a escala</span>
+      <span class="legend"><span lang="en">Spain / remote</span><span lang="es">España / remoto</span><span class="k-uk" lang="en">United Kingdom</span><span class="k-uk" lang="es">Reino Unido</span><span class="k-study" lang="en">Study</span><span class="k-study" lang="es">Estudios</span></span>
+    </div>
+    <ul class="sr-only" lang="en">
+      <li>MSc in Big Data and Business Analytics, early 2016 to Sep 2017, with a full-time machine learning dissertation from May to Sep 2017</li>
+      <li>TUI Group, United Kingdom, Nov 2016 to Apr 2017</li>
+      <li>Government Digital Service and Department for Education, United Kingdom, Sep 2017 to Dec 2020</li>
+      <li>Atida, Spain, remote, Mar to Oct 2021</li>
+      <li>JD Sports Group, Spain, remote, Oct 2021 to Jul 2024</li>
+      <li>Nutr(IA) Coach, Aug 2024 to present</li>
+      <li>Ingersoll Rand, remote, Jan to Jun 2026</li>
+    </ul>
+    <ul class="sr-only" lang="es">
+      <li>Máster en Big Data y Business Analytics, de principios de 2016 a septiembre de 2017, con un trabajo fin de máster en machine learning a tiempo completo de mayo a septiembre de 2017</li>
+      <li>TUI Group, Reino Unido, de noviembre de 2016 a abril de 2017</li>
+      <li>Government Digital Service y Department for Education, Reino Unido, de septiembre de 2017 a diciembre de 2020</li>
+      <li>Atida, España, en remoto, de marzo a octubre de 2021</li>
+      <li>JD Sports Group, España, en remoto, de octubre de 2021 a julio de 2024</li>
+      <li>Nutr(IA) Coach, de agosto de 2024 a la actualidad</li>
+      <li>Ingersoll Rand, en remoto, de enero a junio de 2026</li>
+    </ul>
+    <div class="plot" aria-hidden="true">
+      <div class="lane"><span class="tag l" style="--s:0%"><span lang="en">MSc · Machine learning</span><span lang="es">Máster · Machine learning</span></span><i class="bar study phased" style="--s:0%;--w:15.91%;--split:76.2%"></i></div>
+      <div class="lane"><span class="tag l" style="--s:7.58%">TUI Group</span><i class="bar uk" style="--s:7.58%;--w:4.55%;--d:.08s"></i></div>
+      <div class="lane"><span class="tag l" style="--s:15.15%">Government Digital Service<span class="wide"> · Department for Education</span></span><i class="bar uk" style="--s:15.15%;--w:30.3%;--d:.16s"></i></div>
+      <div class="lane"><span class="tag l" style="--s:46.97%">Atida</span><i class="bar" style="--s:46.97%;--w:5.3%;--d:.24s"></i></div>
+      <div class="lane"><span class="tag l" style="--s:52.27%">JD Sports Group</span><i class="bar" style="--s:52.27%;--w:25.76%;--d:.32s"></i></div>
+      <div class="lane"><span class="tag r" style="--r:1.89%">Nutr(IA) Coach</span><i class="bar live" style="--s:78.03%;--w:20.08%;--d:.4s"></i></div>
+      <div class="lane"><span class="tag r" style="--r:4.55%">Ingersoll Rand</span><i class="bar" style="--s:90.91%;--w:4.55%;--d:.48s"></i></div>
+      <span class="today" aria-hidden="true"></span>
+      <div class="axis" aria-hidden="true">
+        <span style="left:0%;transform:none">2016</span><span style="left:18.18%">2018</span><span style="left:36.36%">2020</span><span style="left:54.55%">2022</span><span style="left:72.73%">2024</span><span style="left:90.91%">2026</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="metrics">
+    <div class="metric"><b>12</b><span lang="en">years in digital products &amp; ecommerce</span><span lang="es">años en producto digital y ecommerce</span></div>
+    <div class="metric"><b>10</b><span lang="en">years in measurement &amp; analytics</span><span lang="es">años en medición y analítica</span></div>
+    <div class="metric"><b>+70%</b><span lang="en">analytics adoption YoY at JD Sports</span><span lang="es">adopción de analítica interanual en JD Sports</span></div>
+    <div class="metric"><b>100+</b><span lang="en">websites across 60 brands under one governance programme</span><span lang="es">webs de 60 marcas bajo un mismo gobierno del dato</span></div>
+  </div>
+</header>
+
+<div class="body">
+  <aside>
+    <section>
+      <h2><span lang="en">Skills</span><span lang="es">Competencias</span></h2>
+      <div class="skillset">
+        <div>
+          <h3 lang="en">Data governance</h3><h3 lang="es">Gobierno del dato</h3>
+          <div class="chips" lang="en"><span>Data quality</span><span>Data ownership</span><span>KPI definition</span><span>Tracking plans</span><span>Event taxonomy</span><span>dataLayer</span><span>GDPR</span><span>CCPA</span><span>Consent Mode</span></div>
+          <div class="chips" lang="es"><span>Calidad del dato</span><span>Ownership del dato</span><span>Definición de KPIs</span><span>Tracking plans</span><span>Taxonomía de eventos</span><span>dataLayer</span><span>RGPD</span><span>CCPA</span><span>Consent Mode</span></div>
+        </div>
+        <div>
+          <h3 lang="en">Measurement</h3><h3 lang="es">Medición</h3>
+          <div class="chips" lang="en"><span>Measurement strategy</span><span>A/B testing</span><span>CRO</span><span>Funnel analysis</span><span>Attribution</span><span>RFM</span><span>CLV</span><span>Churn &amp; retention</span><span>Voice of Customer</span><span>Statistics</span><span>Machine learning</span></div>
+          <div class="chips" lang="es"><span>Estrategia de medición</span><span>Tests A/B</span><span>CRO</span><span>Análisis de embudos</span><span>Atribución</span><span>RFM</span><span>CLV</span><span>Churn y retención</span><span>Voice of Customer</span><span>Estadística</span><span>Machine learning</span></div>
+        </div>
+        <div>
+          <h3 lang="en">Technical</h3><h3 lang="es">Técnico</h3>
+          <div class="chips"><span>SQL</span><span>Python</span><span>pandas</span><span>scikit-learn</span><span>BigQuery</span><span>GCP</span><span>Vertex AI</span><span>Snowflake</span><span>Azure</span><span>ETL</span><span>Git</span><span>GA4</span><span>GTM</span><span>Databricks</span><span>Looker</span><span>Tableau</span><span>Power BI</span><span>Salesforce</span></div>
+        </div>
+        <div>
+          <h3 lang="en">Leadership</h3><h3 lang="es">Liderazgo</h3>
+          <div class="chips" lang="en"><span>Data &amp; AI enablement</span><span>Train-the-trainer</span><span>Stakeholder management</span><span>Cross-functional teams</span><span>Data literacy</span><span>Roadmaps &amp; backlog</span><span>User stories &amp; UAT</span><span>Scrum (PSM I)</span><span>Business cases</span></div>
+          <div class="chips" lang="es"><span>Capacitación en datos e IA</span><span>Formación de formadores</span><span>Gestión de stakeholders</span><span>Equipos transversales</span><span>Cultura del dato</span><span>Roadmap y backlog</span><span>Historias de usuario y UAT</span><span>Scrum (PSM I)</span><span>Business cases</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2><span lang="en">Languages</span><span lang="es">Idiomas</span></h2>
+      <div class="langs">
+        <div class="lang"><div><b lang="en">Spanish</b><b lang="es">Español</b><span lang="en">Native</span><span lang="es">Nativo</span></div><div class="meter"><i style="--v:100%"></i></div></div>
+        <div class="lang"><div><b lang="en">English</b><b lang="es">Inglés</b><span lang="en">Full professional</span><span lang="es">Profesional completo</span></div><div class="meter"><i style="--v:92%"></i></div></div>
+        <div class="lang"><div><b lang="en">German</b><b lang="es">Alemán</b><span>A2</span></div><div class="meter"><i style="--v:30%"></i></div></div>
+      </div>
+    </section>
+
+    <section>
+      <h2><span lang="en">Education</span><span lang="es">Formación</span></h2>
+      <ul class="list">
+        <li><span lang="en">MSc Big Data and Business Analytics</span><span lang="es">Máster en Big Data y Business Analytics</span><small>Telefónica · UEMC · 2016–2017</small></li>
+        <li><span lang="en">BA Sociology, Market and Social Research</span><span lang="es">Licenciatura en Sociología, Investigación Social y de Mercados</span></li>
+        <li><span lang="en">Advanced Technician in Software Development</span><span lang="es">Técnico Superior en Desarrollo de Software</span></li>
+        <li><span lang="en">Professional Certificate in Teaching VET</span><span lang="es">Certificado de Docencia de la Formación Profesional para el Empleo</span><small lang="en">SSCE0110 · train-the-trainer</small><small lang="es">SSCE0110 · formación de formadores</small></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span lang="en">Certifications</span><span lang="es">Certificaciones</span></h2>
+      <ul class="list">
+        <li>AI Cybersecurity and Governance<small lang="en">Columbia Engineering Executive Education · in progress, ends Dec 2026</small><small lang="es">Columbia Engineering Executive Education · en curso, finaliza en dic 2026</small></li>
+        <li><a href="https://www.skills.google/public_profiles/ef9a6670-fad9-4b9f-9b27-79b646f11bc9">Google Cloud Skills, Diamond League ↗</a><small>2026</small></li>
+        <li><span lang="en">Artificial Intelligence Applied to Business</span><span lang="es">Inteligencia Artificial Aplicada a la Empresa</span><small lang="en">IFCT0019 · 280 hours · 2025</small><small lang="es">IFCT0019 · 280 horas · 2025</small></li>
+        <li><a lang="en" href="https://certificates.emeritus.org/acdf2694-9a22-40e4-9e74-0eb014fd8fd0">Designing &amp; Building AI Products and Services ↗</a><a lang="es" href="https://certificates.emeritus.org/3a08c963-c462-4896-bc92-150ea86a6bda">Designing &amp; Building AI Products and Services ↗</a><small lang="en">MIT Professional Education · exemplary assignment · 2024</small><small lang="es">MIT Professional Education · trabajo ejemplar · 2024</small></li>
+        <li>McKinsey Forward<small>2024</small></li>
+        <li><a href="https://www.teamsimmer.com/simmer-certificate-verification/132E06A38-132E01BB3-2F365D8/">Query GA4 Data in Google BigQuery ↗</a><small>Simmer · 2023</small></li>
+        <li><a href="https://www.scrum.org/user/778198">Professional Scrum Master I ↗</a><small>2021</small></li>
+      </ul>
+    </section>
+  </aside>
+
+  <main>
+    <section class="profile">
+      <h2><span lang="en">Profile</span><span lang="es">Perfil</span></h2>
+      <p lang="en">Analytics and data &amp; AI governance professional with 12 years in digital products and ecommerce, 10 of them in analytics, measurement and data governance: six in the United Kingdom and four in Spain. MSc in Big Data and Business Analytics.</p>
+      <p lang="es">Profesional de analítica y gobierno del dato y la IA con 12 años en producto digital y ecommerce, 10 de ellos en analítica, medición y gobierno del dato: seis en Reino Unido y cuatro en España. Máster en Big Data y Business Analytics.</p>
+      <p lang="en">I use AI to scale analysis and build data products, from LLM-based classification of customer feedback to an AI-powered SaaS on Vertex AI, and I help teams self-serve their own insights through training programmes.</p>
+      <p lang="es">Uso IA para escalar el análisis y crear productos de datos, desde la clasificación de feedback de clientes con LLMs hasta un SaaS con IA sobre Vertex AI, y ayudo a los equipos a obtener sus propios insights con programas de formación.</p>
+    </section>
+
+    <section>
+      <h2><span lang="en">Experience</span><span lang="es">Experiencia</span></h2>
+      <div class="jobs">
+
+        <article class="job">
+          <div class="job-head">
+            <h3><span lang="en">Senior Digital Analyst, Center of Excellence</span><span lang="es">Senior Digital Analyst, Centro de Excelencia</span><span class="org">Ingersoll Rand</span></h3>
+            <div class="when"><span lang="en">Jan – Jun 2026</span><span lang="es">Ene – Jun 2026</span><span class="pill" lang="en">Remote</span><span class="pill" lang="es">Remoto</span></div>
+          </div>
+          <p class="ctx" lang="en">Industrial manufacturing and B2B ecommerce.</p>
+          <p class="ctx" lang="es">Fabricación industrial y ecommerce B2B.</p>
+          <ul lang="en">
+            <li>Led the <b>global consent management platform migration</b> across <b>100+ websites and 60 brands</b> in every region, including China, ensuring GDPR and CCPA compliance and consent validation.</li>
+            <li>Owned web analytics governance and the <b>GTM implementation for all 60 brands</b>, and defined the <b>data quality framework</b> for web analytics tools.</li>
+            <li>Built the business cases for marketing technology investment in digital data.</li>
+          </ul>
+          <ul lang="es">
+            <li>Lideré la <b>migración global de la plataforma de consentimiento</b> en <b>más de 100 webs y 60 marcas</b> de todas las regiones, incluida China, garantizando el cumplimiento de RGPD y CCPA y la validación del consentimiento.</li>
+            <li>Responsable del gobierno de la analítica web y de la <b>implementación de GTM de las 60 marcas</b>, y definí el <b>marco de calidad del dato</b> para las herramientas de analítica.</li>
+            <li>Elaboré los business cases para la inversión en tecnología de marketing para el dato digital.</li>
+          </ul>
+          <div class="stack"><span>GA4</span><span>GTM</span><span>dataLayer</span><span>BigQuery</span><span>Snowflake</span><span>Vertex AI</span><span>Consent Mode</span><span>Python</span></div>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <h3><span lang="en">Co-founder and Product Manager</span><span lang="es">Cofundadora y Product Manager</span><span class="org">Nutr(IA) Coach</span></h3>
+            <div class="when"><span lang="en">Aug 2024 – present</span><span lang="es">Ago 2024 – actualidad</span><span class="pill now" lang="en">Active</span><span class="pill now" lang="es">En curso</span></div>
+          </div>
+          <p class="ctx" lang="en">AI SaaS for nutrition professionals.</p>
+          <p class="ctx" lang="es">SaaS de inteligencia artificial para profesionales de la nutrición.</p>
+          <ul lang="en">
+            <li>Took an AI product <b>from concept to beta</b>. Selected for the INCOOVA incubator (completed December 2025) and the Google Cloud Startup programme.</li>
+            <li>Validated the product through interviews with <b>10+ nutrition professionals</b> and prioritised the roadmap from their feedback.</li>
+          </ul>
+          <ul lang="es">
+            <li>Llevé un producto de IA <b>de la idea a la beta</b>. Seleccionado por la incubadora INCOOVA (finalizada en diciembre de 2025) y el programa Google Cloud Startup.</li>
+            <li>Validé el producto con entrevistas a <b>más de 10 profesionales de la nutrición</b> y prioricé el roadmap a partir de su feedback.</li>
+          </ul>
+          <div class="stack"><span>Generative AI</span><span>LLM APIs</span><span>AI agents</span><span>Vertex AI</span><span>GCP</span><span>BigQuery</span><span>Python</span><span>User research</span></div>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <h3>Senior Data Analyst<span class="org">JD Sports Group</span></h3>
+            <div class="when"><span>Oct 2021 – Jul 2024</span><span class="pill" lang="en">Remote</span><span class="pill" lang="es">Remoto</span></div>
+          </div>
+          <p class="ctx" lang="en">Sprinter and Sportzone brands. Omnichannel sporting goods retailer, 300+ stores.</p>
+          <p class="ctx" lang="es">Marcas Sprinter y Sportzone. Retail deportivo omnicanal con más de 300 tiendas.</p>
+          <ul lang="en">
+            <li>Led a measurement programme of <b>8 projects at 90% stakeholder satisfaction</b>, defining the product vision and coordinating marketing, product, technology and agency teams.</li>
+            <li>Grew analytics adoption <b>70% year on year</b> through enablement work across business areas.</li>
+            <li>Improved checkout conversion through a <b>Voice of Customer programme</b>, from user research and metric definition to implementation and analysis. Used the OpenAI API to categorise open-text responses at scale.</li>
+            <li>Built measurement frameworks for cross-channel campaigns and experimentation, and worked with developers on KPI data quality under GDPR.</li>
+          </ul>
+          <ul lang="es">
+            <li>Lideré un programa de medición de <b>8 proyectos con un 90% de satisfacción</b> de stakeholders, definiendo la visión de producto y coordinando equipos de marketing, producto, tecnología y agencias.</li>
+            <li>Aumenté la adopción de la analítica un <b>70% interanual</b> con formación y acompañamiento a las áreas de negocio.</li>
+            <li>Mejoré la conversión del checkout con un <b>programa de Voice of Customer</b>, desde la investigación con usuarios y la definición de métricas hasta la implementación y el análisis. Usé la API de OpenAI para categorizar respuestas abiertas a escala.</li>
+            <li>Construí marcos de medición para campañas multicanal y experimentación, y trabajé con desarrollo en la calidad del dato de los KPIs bajo RGPD.</li>
+          </ul>
+          <div class="stack"><span>BigQuery</span><span>GA4</span><span>GTM</span><span>Looker</span><span>Python</span><span>Salesforce</span><span>Clarity</span><span>Hotjar</span><span>Jira</span></div>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <h3>Senior Digital Analyst<span class="org">Atida Group (DosFarma)</span></h3>
+            <div class="when"><span>Mar – Oct 2021</span><span class="pill" lang="en">Remote</span><span class="pill" lang="es">Remoto</span></div>
+          </div>
+          <p class="ctx" lang="en">Online pharmacy, 40,000+ product references.</p>
+          <p class="ctx" lang="es">Farmacia online con más de 40.000 referencias.</p>
+          <ul lang="en">
+            <li>Built an <b>RFM customer segmentation model</b> to support retention and marketing targeting.</li>
+            <li>Led the ecommerce analytics implementation with external technical partners.</li>
+            <li>Go-to person for data across marketing, digital and product teams.</li>
+          </ul>
+          <ul lang="es">
+            <li>Desarrollé un <b>modelo de segmentación RFM</b> para retención y segmentación de marketing.</li>
+            <li>Lideré la implementación de la analítica de ecommerce con partners técnicos externos.</li>
+            <li>Referente de datos para los equipos de marketing, digital y producto.</li>
+          </ul>
+          <div class="stack"><span>Power BI</span><span>Google Analytics</span><span>Python</span><span>RFM</span><span>Azure</span></div>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <h3>Senior Product Analyst<span class="org">UK Government Digital Service &amp; Department for Education</span></h3>
+            <div class="when"><span lang="en">Sep 2017 – Dec 2020</span><span lang="es">Sep 2017 – Dic 2020</span><span class="pill uk" lang="en">London, UK</span><span class="pill uk" lang="es">Londres, Reino Unido</span></div>
+          </div>
+          <p class="ctx" lang="en">Government SaaS and digital identity, embedded in cross-functional agile product teams.</p>
+          <p class="ctx" lang="es">SaaS gubernamental e identidad digital, dentro de equipos de producto ágiles y multidisciplinares.</p>
+          <ul lang="en">
+            <li>Cut report effort by <b>three quarters</b> through Python automation and ETL pipelines.</li>
+            <li>Delivered weekly reporting to <b>30+ stakeholders, 100% on time</b>, creating and validating new metrics and KPIs.</li>
+            <li>Implemented GDPR across the unit with the Head of Privacy, covering consent and sensitive data handling.</li>
+            <li>Wrote user stories and UAT criteria for analytics work across departments. Co-chaired the European National Network at the Government Digital Service.</li>
+          </ul>
+          <ul lang="es">
+            <li>Reduje en <b>tres cuartas partes</b> el esfuerzo de reporting con automatización en Python y pipelines ETL.</li>
+            <li>Entregué reporting semanal a <b>más de 30 stakeholders, 100% en plazo</b>, creando y validando nuevas métricas y KPIs.</li>
+            <li>Implanté el RGPD en la unidad junto al Head of Privacy, incluyendo consentimiento y tratamiento de datos sensibles.</li>
+            <li>Redacté historias de usuario y criterios de UAT para trabajo analítico entre departamentos. Copresidí la European National Network en el Government Digital Service.</li>
+          </ul>
+          <div class="stack"><span>SQL</span><span>GA 360</span><span>GTM</span><span>Python</span><span>Looker</span><span>Qualtrics</span><span>Matomo</span><span>AWS</span><span>GCP</span></div>
+        </article>
+
+        <article class="job study">
+          <div class="job-head">
+            <h3><span lang="en">Career break · MSc dissertation</span><span lang="es">Pausa profesional · Trabajo fin de máster</span><span class="org" lang="en">Forecasting pedestrian accidents in Los Angeles</span><span class="org" lang="es">Predicción de atropellos de peatones en Los Ángeles</span></h3>
+            <div class="when"><span lang="en">May – Sep 2017</span><span lang="es">May – Sep 2017</span><span class="pill uk" lang="en">Remote · UK</span><span class="pill uk" lang="es">Remoto · Reino Unido</span></div>
+          </div>
+          <ul lang="en">
+            <li>Built <b>machine learning forecasting models</b> of pedestrian collisions in Los Angeles on Databricks.</li>
+            <li>Presented the findings in Tableau dashboards.</li>
+          </ul>
+          <ul lang="es">
+            <li>Desarrollé <b>modelos de machine learning de predicción</b> de atropellos de peatones en Los Ángeles sobre Databricks.</li>
+            <li>Presenté los resultados en dashboards de Tableau.</li>
+          </ul>
+          <div class="stack"><span>Databricks</span><span>Machine learning</span><span>Tableau</span><span>Forecasting</span></div>
+        </article>
+
+        <article class="job">
+          <div class="job-head">
+            <h3><span lang="en">eCommerce Analyst · Analytics owner for Long-Haul, 3 brands</span><span lang="es">eCommerce Analyst · Responsable de analítica de Long-Haul, 3 marcas</span><span class="org">TUI Group (Travelopia)</span></h3>
+            <div class="when"><span lang="en">Nov 2016 – Apr 2017</span><span lang="es">Nov 2016 – Abr 2017</span><span class="pill uk">Crawley, West Sussex, UK</span></div>
+          </div>
+          <p class="ctx" lang="en">Travel and ecommerce, long-haul division.</p>
+          <p class="ctx" lang="es">Viajes y ecommerce, división de largo radio.</p>
+          <ul lang="en">
+            <li>Owned long-haul travel analytics for <b>3 brands</b>.</li>
+            <li>Led the <b>migration from Adobe SiteCatalyst to Google Analytics 360</b>.</li>
+          </ul>
+          <ul lang="es">
+            <li>Responsable de la analítica de viajes de largo radio para <b>3 marcas</b>.</li>
+            <li>Lideré la <b>migración de Adobe SiteCatalyst a Google Analytics 360</b>.</li>
+          </ul>
+          <div class="stack"><span>Adobe SiteCatalyst</span><span>Google Analytics 360</span><span>Ecommerce analytics</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2><span lang="en">Previous roles</span><span lang="es">Puestos anteriores</span></h2>
+      <div class="prev">
+        <div><b>Digital Analyst<small lang="en">Goldcar Rental (Europcar Group)</small><small lang="es">Goldcar Rental (Grupo Europcar)</small></b>
+          <span lang="en">Led the measurement plan across 15 countries and defined CLV with the Chief Digital Officer.</span>
+          <span lang="es">Lideré el plan de medición en 15 países y definí el CLV con el Chief Digital Officer.</span></div>
+        <div><b>Head of Digital Marketing<small>aBoatTime · BoatGrid</small></b>
+          <span lang="en">Increased leads 112% in six months while cutting budget 48% year on year. Led a team of 5.</span>
+          <span lang="es">Aumenté los leads un 112% en seis meses reduciendo el presupuesto un 48% interanual. Equipo de 5 personas.</span></div>
+        <div><b>Insights Analyst<small>Branded3 · UK</small></b>
+          <span lang="en">UX, CRO and Google Analytics audits, plus SEO and PPC reporting, for clients including Next, Virgin Holidays, Jet2 and Ladbrokes.</span>
+          <span lang="es">Auditorías de UX, CRO y Google Analytics, y reporting de SEO y PPC, para clientes como Next, Virgin Holidays, Jet2 y Ladbrokes.</span></div>
+        <div><b><span lang="en">Sociologist and Social Research Analyst</span><span lang="es">Socióloga e investigadora social</span><small lang="en">Public sector · academia</small><small lang="es">Sector público · universidad</small></b>
+          <span lang="en">Quantitative and qualitative research.</span>
+          <span lang="es">Investigación cuantitativa y cualitativa.</span></div>
+      </div>
+    </section>
+  </main>
+</div>
+
+</div>
+
+<script>
+(function(){
+  var body=document.body, KEY="cv-lang";
+  function set(l){
+    body.classList.remove("lang-en","lang-es");
+    body.classList.add("lang-"+l);
+    document.documentElement.lang=l;
+    document.querySelectorAll(".switch button").forEach(function(b){b.setAttribute("aria-pressed", b.dataset.set===l?"true":"false");});
+    try{localStorage.setItem(KEY,l);}catch(e){}
+  }
+  var saved=null; try{saved=localStorage.getItem(KEY);}catch(e){}
+  var hash=location.hash.replace("#","");
+  set(hash==="es"||hash==="en" ? hash : saved || ((navigator.language||"en").slice(0,2)==="es" ? "es" : "en"));
+  document.querySelectorAll(".switch button").forEach(function(b){b.addEventListener("click",function(){set(b.dataset.set);});});
+})();
+</script>
