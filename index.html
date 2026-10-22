@@ -101,6 +101,7 @@ h1 em{font-style:normal;color:var(--mint)}
 .lane{position:relative;height:34px}
 .bar{position:absolute;bottom:4px;left:var(--s);width:var(--w);height:10px;border-radius:5px;background:var(--mint);transform-origin:left;animation:grow .9s cubic-bezier(.2,.7,.2,1) both;animation-delay:var(--d,0s)}
 .bar.uk{background:var(--lilac)}
+.bar.study.ongoing{-webkit-mask-image:linear-gradient(90deg,#000 17%,rgb(0 0 0/.35) 17%);mask-image:linear-gradient(90deg,#000 17%,rgb(0 0 0/.35) 17%)} /* fades after today */
 .bar.live{background:linear-gradient(90deg,var(--mint) 75%,color-mix(in srgb,var(--mint) 25%,transparent))}
 .tag{position:absolute;bottom:18px;font:500 var(--s-2)/1 var(--f-mono);color:var(--band-ink);white-space:nowrap;letter-spacing:.02em}
 .tag.l{left:var(--s)} .tag.r{right:var(--r)}
@@ -233,8 +234,10 @@ aside h2{font-size:var(--s1)}
       <li>Government Digital Service and Department for Education, United Kingdom, Sep 2017 to Dec 2020</li>
       <li>Atida, Spain, remote, Mar to Oct 2021</li>
       <li>JD Sports Group, Spain, remote, Oct 2021 to Jul 2024</li>
+      <li>MIT Professional Education, Designing and Building AI Products and Services, Jul to Aug 2024</li>
       <li>Nutr(IA) Coach, Aug 2024 to present</li>
       <li>Ingersoll Rand, remote, Jan to Jun 2026</li>
+      <li>Columbia Engineering Executive Education, AI Cybersecurity and Governance, Oct 2026 to Dec 2026, in progress</li>
     </ul>
     <ul class="sr-only" lang="es">
       <li>Máster en Big Data y Business Analytics, de principios de 2016 a septiembre de 2017, con un trabajo fin de máster en machine learning a tiempo completo de mayo a septiembre de 2017</li>
@@ -242,8 +245,10 @@ aside h2{font-size:var(--s1)}
       <li>Government Digital Service y Department for Education, Reino Unido, de septiembre de 2017 a diciembre de 2020</li>
       <li>Atida, España, en remoto, de marzo a octubre de 2021</li>
       <li>JD Sports Group, España, en remoto, de octubre de 2021 a julio de 2024</li>
+      <li>MIT Professional Education, Designing and Building AI Products and Services, de julio a agosto de 2024</li>
       <li>Nutr(IA) Coach, de agosto de 2024 a la actualidad</li>
       <li>Ingersoll Rand, en remoto, de enero a junio de 2026</li>
+      <li>Columbia Engineering Executive Education, AI Cybersecurity and Governance, de octubre a diciembre de 2026, en curso</li>
     </ul>
     <div class="plot" aria-hidden="true">
       <div class="lane"><span class="tag l" style="--s:0%"><span lang="en">MSc · Machine learning</span><span lang="es">Máster · Machine learning</span></span><i class="bar study phased" style="--s:0%;--w:15.91%;--split:76.2%"></i></div>
@@ -251,8 +256,10 @@ aside h2{font-size:var(--s1)}
       <div class="lane"><span class="tag l" style="--s:15.15%">Government Digital Service<span class="wide"> · Department for Education</span></span><i class="bar uk" style="--s:15.15%;--w:30.3%;--d:.16s"></i></div>
       <div class="lane"><span class="tag l" style="--s:46.97%">Atida</span><i class="bar" style="--s:46.97%;--w:5.3%;--d:.24s"></i></div>
       <div class="lane"><span class="tag l" style="--s:52.27%">JD Sports Group</span><i class="bar" style="--s:52.27%;--w:25.76%;--d:.32s"></i></div>
+      <div class="lane"><span class="tag r" style="--r:21.21%">MIT · <span lang="en">AI products</span><span lang="es">Productos de IA</span></span><i class="bar study" style="--s:77.27%;--w:1.52%;--d:.36s"></i></div>
       <div class="lane"><span class="tag r" style="--r:1.89%">Nutr(IA) Coach</span><i class="bar live" style="--s:78.03%;--w:20.08%;--d:.4s"></i></div>
       <div class="lane"><span class="tag r" style="--r:4.55%">Ingersoll Rand</span><i class="bar" style="--s:90.91%;--w:4.55%;--d:.48s"></i></div>
+      <div class="lane"><span class="tag r" style="--r:0%">Columbia · <span lang="en">AI governance</span><span lang="es">Gobierno de la IA</span></span><i class="bar study ongoing" style="--s:97.73%;--w:2.27%;--d:.56s"></i></div>
       <span class="today" aria-hidden="true"></span>
       <div class="axis" aria-hidden="true">
         <span style="left:0%;transform:none">2016</span><span style="left:18.18%">2018</span><span style="left:36.36%">2020</span><span style="left:54.55%">2022</span><span style="left:72.73%">2024</span><span style="left:90.91%">2026</span>
@@ -387,13 +394,13 @@ aside h2{font-size:var(--s1)}
           <p class="ctx" lang="en">Sprinter and Sportzone brands. Omnichannel sporting goods retailer, 300+ stores.</p>
           <p class="ctx" lang="es">Marcas Sprinter y Sportzone. Retail deportivo omnicanal con más de 300 tiendas.</p>
           <ul lang="en">
-            <li>Led a measurement programme of <b>8 projects at 90% stakeholder satisfaction</b>, defining the product vision and coordinating marketing, product, technology and agency teams.</li>
+            <li>Product owner of an <b>8-project data and measurement programme</b>: owned the vision and roadmap and prioritised the backlog, working with a PMO project manager across marketing, product, technology and agency teams. Delivered at <b>90% stakeholder satisfaction</b>.</li>
             <li>Grew analytics adoption <b>70% year on year</b> through enablement work across business areas.</li>
             <li>Improved checkout conversion through a <b>Voice of Customer programme</b>, from user research and metric definition to implementation and analysis. Used the OpenAI API to categorise open-text responses at scale.</li>
             <li>Built measurement frameworks for cross-channel campaigns and experimentation, and worked with developers on KPI data quality under GDPR.</li>
           </ul>
           <ul lang="es">
-            <li>Lideré un programa de medición de <b>8 proyectos con un 90% de satisfacción</b> de stakeholders, definiendo la visión de producto y coordinando equipos de marketing, producto, tecnología y agencias.</li>
+            <li>Product owner de un <b>programa de datos y medición de 8 proyectos</b>: definí la visión y el roadmap y prioricé el backlog, junto a un project manager de la PMO, con marketing, producto, tecnología y agencias. <b>90% de satisfacción</b> de stakeholders.</li>
             <li>Aumenté la adopción de la analítica un <b>70% interanual</b> con formación y acompañamiento a las áreas de negocio.</li>
             <li>Mejoré la conversión del checkout con un <b>programa de Voice of Customer</b>, desde la investigación con usuarios y la definición de métricas hasta la implementación y el análisis. Usé la API de OpenAI para categorizar respuestas abiertas a escala.</li>
             <li>Construí marcos de medición para campañas multicanal y experimentación, y trabajé con desarrollo en la calidad del dato de los KPIs bajo RGPD.</li>
