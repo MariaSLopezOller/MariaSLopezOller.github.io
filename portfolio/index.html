@@ -301,7 +301,7 @@ footer b { color: var(--fg); }
 <header class="bar">
   <span><b>María S. López Oller</b><span class="bar-meta"> · measurement spec · v2026.11</span></span>
   <nav aria-label="Contact and profiles">
-    <a href="mailto:maria.lopez.digital@gmail.com">Email</a>
+    <a href="#" data-mail="latigid.zepol.airam">Email</a>
     <a href="https://www.linkedin.com/in/mariaslopezoller">LinkedIn</a>
     <a href="https://mariaslopezoller.github.io">GitHub</a>
     <a href="https://www.cloudskillsboost.google/public_profiles/ef9a6670-fad9-4b9f-9b27-79b646f11bc9">Google Cloud</a>
@@ -353,7 +353,7 @@ footer b { color: var(--fg); }
   <div><dt class="k">Looking for</dt><dd>Senior and lead roles in analytics, data products, and data and AI governance</dd></div>
   <div><dt class="k">Experience</dt><dd>10+ years in analytics across the UK and Spain: retail, travel, UK government, industrial and health tech</dd></div>
   <div><dt class="k">Based in</dt><dd>Europe, working remotely. EU passport and UK Settled Status</dd></div>
-  <div><dt class="k">Contact</dt><dd>maria.lopez.digital@gmail.com<br><a href="https://mariaslopezoller.github.io">CV</a> · <a href="https://www.linkedin.com/in/mariaslopezoller">LinkedIn</a></dd></div>
+  <div><dt class="k">Contact</dt><dd><a href="#" data-mail="latigid.zepol.airam">Email</a> · <a href="https://mariaslopezoller.github.io">CV</a> · <a href="https://www.linkedin.com/in/mariaslopezoller">LinkedIn</a></dd></div>
 </dl>
 
 <section class="sec" aria-labelledby="ai-title">
@@ -684,7 +684,7 @@ footer b { color: var(--fg); }
 
 <footer>
   <span><b>End of spec</b> · open to analytics, data product, and data and AI governance roles</span>
-  <span>maria.lopez.digital@gmail.com</span>
+  <span><a href="https://mariaslopezoller.github.io">CV</a> · <a href="https://www.linkedin.com/in/mariaslopezoller">LinkedIn</a></span>
 </footer>
 </div>
 
@@ -800,6 +800,12 @@ footer b { color: var(--fg); }
     mo.observe(mark);
   }
 })();
+
+/* Email: the address is only assembled when someone uses the link, so it never sits in the page source for scrapers. */
+document.querySelectorAll("a[data-mail]").forEach(function (a) {
+  function set() { a.href = "mailto:" + a.getAttribute("data-mail").split("").reverse().join("") + "@" + ["gmail", "com"].join("."); }
+  ["pointerdown", "focus", "click"].forEach(function (ev) { a.addEventListener(ev, set); });
+});
 </script>
 </body>
 </html>
