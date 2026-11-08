@@ -190,6 +190,33 @@ h2 { margin: 0; font: 800 clamp(1.5rem, 3.4vw, 2.25rem)/1.12 var(--display); let
 }
 .b-count { margin: .7rem 0 0; }
 
+/* Phones and small tablets: the build panel shrinks to one sticky line (year, role, layer count) so the log stays readable. */
+@media (max-width: 59.99rem) {
+  .build { top: calc(env(safe-area-inset-top, 0px) + 2.4rem); display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: .75rem; padding: .55rem .85rem; border-radius: 12px; box-shadow: 0 8px 18px -12px rgba(0,0,0,.6); }
+  .b-ver { display: contents; }
+  .b-ver .k { display: none; }
+  .b-year { font-size: 1.35rem; }
+  .b-role { margin: 0; min-height: 0; font-size: .84rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .layers { display: none; }
+  .b-count { margin: 0; white-space: nowrap; }
+}
+@media (max-width: 39.99rem) {
+  .bar-meta { display: none; }
+  .bar { gap: .35rem 1rem; }
+  .bar nav { gap: .2rem .75rem; letter-spacing: 0; }
+}
+/* The index scrolls sideways on narrow screens: fade its right edge so that reads as "more". */
+@media (max-width: 71.99rem) {
+  .toc { padding-inline-end: 2.5rem; -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 3rem), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 3rem), transparent); }
+}
+/* Touch: 44px targets for the readout dots and index links. */
+@media (pointer: coarse) {
+  .ro-dot { padding: 1.2rem 0; }
+  .ro-dots { margin-top: .3rem; }
+  .toc { padding-block: .1rem; }
+  .toc a, .toc .k { display: inline-block; padding-block: .62rem; }
+}
+
 .log { list-style: none; margin: 0; padding: 0 0 0 1.4rem; position: relative; }
 .log::before { content: ""; position: absolute; left: .3rem; top: .5rem; bottom: .5rem; width: 1px; background: var(--line); }
 .log::after { content: ""; position: absolute; left: .3rem; top: .5rem; width: 1px; height: var(--progress, 100%); background: var(--signal); transition: height .4s ease; }
@@ -265,7 +292,7 @@ footer b { color: var(--fg); }
 <div class="wrap">
 
 <header class="bar">
-  <span><b>Maria S. Lopez Oller</b> · measurement spec · v2026.11</span>
+  <span><b>Maria S. Lopez Oller</b><span class="bar-meta"> · measurement spec · v2026.11</span></span>
   <nav aria-label="Contact and profiles">
     <a href="mailto:maria.lopez.digital@gmail.com">Email</a>
     <a href="https://www.linkedin.com/in/mariaslopezoller">LinkedIn</a>
