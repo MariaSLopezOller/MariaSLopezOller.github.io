@@ -66,7 +66,7 @@ a:hover { color: var(--fg); }
 :focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; }
 .wrap { max-width: 76rem; margin-inline: auto; }
 .code { font: 500 .75rem/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--signal-text); }
-.k { font: 500 .7rem/1.4 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.k { font: 500 .75rem/1.4 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 
 /* Top bar */
 .bar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .4rem 1.5rem; padding-block: .9rem; border-bottom: 1px solid var(--line); font: 500 .76rem/1.5 var(--mono); letter-spacing: .04em; text-transform: uppercase; }
@@ -88,7 +88,7 @@ a:hover { color: var(--fg); }
 .role b { color: var(--fg); font-weight: 600; }
 .q { margin: 0; font: 700 clamp(1.35rem, 2.9vw, 2.1rem)/1.15 var(--display); letter-spacing: -.03em; text-wrap: balance; max-width: 22em; }
 h1 { margin: 0; font: 800 clamp(1.85rem, 4.4vw, 3.2rem)/1.08 var(--display); letter-spacing: -.04em; text-wrap: balance; max-width: 17em; }
-.lead { margin: 1.25rem 0 0; max-width: 40rem; color: var(--muted); font-size: 1.1rem; }
+.lead { margin: 1.25rem 0 0; max-width: 54ch; color: var(--muted); font-size: 1.1rem; }
 
 /* Readout: the page's idea in one panel. A number, then how it was measured. */
 .readout { --dur: 5s; min-width: 0; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1rem 1.1rem 1.05rem; }
@@ -98,7 +98,7 @@ h1 { margin: 0; font: 800 clamp(1.85rem, 4.4vw, 3.2rem)/1.08 var(--display); let
 .ro-pause { font: 500 .75rem/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--fg); background: none; border: 1px solid var(--line); border-radius: 999px; padding: .45rem .7rem; min-height: 24px; cursor: pointer; }
 .ro-pause:hover { border-color: var(--signal-text); }
 .ro-pause[hidden] { display: none; }
-.anim .ro-head .k::before { animation: blink 2s ease-in-out infinite; }
+.anim .readout:not(.paused):not(.hold) .ro-head .k::before { animation: blink 2s ease-in-out infinite; }
 @keyframes blink { 50% { opacity: .25; } }
 .ro-val { margin-top: .9rem; font: 800 clamp(2.6rem, 7vw, 3.5rem)/1 var(--display); letter-spacing: -.045em; color: var(--signal-text); }
 .ro-label { margin-top: .45rem; font-weight: 600; font-size: .92rem; line-height: 1.4; }
@@ -135,7 +135,7 @@ h1 { margin: 0; font: 800 clamp(1.85rem, 4.4vw, 3.2rem)/1.08 var(--display); let
 .t-lab { color: var(--muted); font-size: .88rem; line-height: 1.4; }
 .t-title { margin-top: .75rem; font-weight: 600; font-size: 1.04rem; line-height: 1.35; }
 .t-title::after { content: " \2192"; color: var(--muted); }
-.t-tags { font: 400 .72rem/1.5 var(--mono); color: var(--muted); }
+.t-tags { font: 400 .75rem/1.5 var(--mono); color: var(--muted); }
 
 /* AI: three cards, then the design as a flow a recommendation passes through. */
 .ai-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
@@ -151,9 +151,14 @@ h1 { margin: 0; font: 800 clamp(1.85rem, 4.4vw, 3.2rem)/1.08 var(--display); let
 .flow li.human { border-style: dashed; border-color: var(--signal-text); }
 .flow li:not(:last-child)::after { content: "\2193"; position: absolute; left: 50%; bottom: -1rem; transform: translateX(-50%); color: var(--muted); font-size: .8rem; line-height: 1rem; }
 @media (min-width: 48rem) { .flow li:not(:last-child)::after { content: "\2192"; left: auto; right: -1.15rem; bottom: auto; top: 50%; transform: translateY(-50%); } }
-.anim .flow li { animation: flow-step 6s ease-in-out infinite; animation-delay: calc(var(--i) * 1s); animation-fill-mode: none; }
+.anim .flow.play li { animation: flow-step 6s ease-in-out 1; animation-delay: calc(var(--i) * 1s); animation-fill-mode: none; }
 @keyframes flow-step { 0%, 14% { background: var(--panel-hi); border-color: var(--signal-text); color: var(--signal-text); } 22%, 100% { } }
 
+.copy-mail { font: 500 .75rem/1 var(--mono); letter-spacing: .04em; color: var(--fg); background: none; border: 1px solid var(--line); border-radius: 999px; padding: .4rem .6rem; min-height: 24px; margin-left: .35rem; cursor: pointer; vertical-align: .05em; }
+.copy-mail:hover { border-color: var(--signal-text); }
+.skip { position: absolute; left: 16px; top: -4rem; z-index: 20; padding: .7rem 1rem; background: var(--signal); color: var(--signal-ink); font: 600 .9rem/1 var(--sans); border-radius: 8px; text-decoration: none; }
+.skip:focus { top: .5rem; color: var(--signal-ink); }
+main:focus { outline: none; }
 /* Index: one line that scrolls sideways on a phone, stuck to the top of the screen. */
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
 .toc { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; display: flex; align-items: center; gap: .3rem 1.1rem; overflow-x: auto; white-space: nowrap; scrollbar-width: none; padding-block: .7rem; background: var(--bg); border-bottom: 1px solid var(--line); font: 500 .75rem/1.4 var(--mono); }
@@ -172,7 +177,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .sec { margin-top: clamp(3.5rem, 8vw, 5.5rem); }
 .sec-head { display: grid; gap: .45rem; margin-bottom: 1.5rem; padding-top: .9rem; border-top: 1px solid var(--fg); }
 h2 { margin: 0; font: 800 clamp(1.5rem, 3.4vw, 2.25rem)/1.12 var(--display); letter-spacing: -.035em; text-wrap: balance; }
-.sec-head p { margin: 0; color: var(--muted); max-width: 44rem; }
+.sec-head p { margin: 0; color: var(--muted); max-width: 56ch; }
 .where { font: 400 .76rem/1.5 var(--mono); color: var(--muted); }
 
 /* Changelog: me, version by version. A sticky build panel lights up each layer as it arrives. */
@@ -184,7 +189,7 @@ h2 { margin: 0; font: 800 clamp(1.5rem, 3.4vw, 2.25rem)/1.12 var(--display); let
 .b-year { font: 800 clamp(1.6rem, 4vw, 2.3rem)/1 var(--display); letter-spacing: -.04em; color: var(--signal-text); }
 .b-role { margin: .35rem 0 0; font-weight: 600; font-size: .9rem; line-height: 1.35; min-height: 2.45em; }
 .layers { list-style: none; margin: .8rem 0 0; padding: .8rem 0 0; border-top: 1px dashed var(--line); display: flex; flex-wrap: wrap; gap: .35rem; }
-.layers li { display: flex; align-items: center; gap: .4rem; padding: .3rem .5rem; border: 1px solid var(--line); border-radius: 999px; font: 500 .68rem/1.2 var(--mono); color: var(--muted); transition: color .35s, border-color .35s, background .35s; }
+.layers li { display: flex; align-items: center; gap: .4rem; padding: .3rem .5rem; border: 1px solid var(--line); border-radius: 999px; font: 500 .75rem/1.2 var(--mono); color: var(--muted); transition: color .35s, border-color .35s, background .35s; }
 .layers li::before { content: ""; width: .45rem; height: .45rem; border-radius: 50%; border: 1px solid var(--muted); transition: background .35s, border-color .35s, transform .35s; flex: none; }
 .layers li span { display: none; }
 .layers li.lit { color: var(--fg); border-color: var(--signal-text); }
@@ -194,7 +199,7 @@ h2 { margin: 0; font: 800 clamp(1.5rem, 3.4vw, 2.25rem)/1.12 var(--display); let
 @keyframes pop { 40% { transform: scale(1.9); } }
 @media (min-width: 60rem) {
   .layers { display: grid; gap: 0; }
-  .layers li { justify-content: flex-start; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; padding: .5rem .2rem; font-size: .72rem; }
+  .layers li { justify-content: flex-start; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; padding: .5rem .2rem; font-size: .75rem; }
   .layers li:last-child { border-bottom: 0; }
   .layers li span { display: inline; margin-left: auto; color: var(--muted); }
   .layers li.lit { border-color: var(--line); }
@@ -226,6 +231,8 @@ h2 { margin: 0; font: 800 clamp(1.5rem, 3.4vw, 2.25rem)/1.12 var(--display); let
   .ro-dots { margin-top: .3rem; }
   .toc { padding-block: .1rem; }
   .toc a, .toc .k { display: inline-block; padding-block: .62rem; }
+  .bar nav a { display: inline-block; padding-block: .45rem; }
+  .ro-pause { min-height: 44px; }
 }
 
 .log { list-style: none; margin: 0; padding: 0 0 0 1.4rem; position: relative; }
@@ -238,7 +245,7 @@ h2 { margin: 0; font: 800 clamp(1.5rem, 3.4vw, 2.25rem)/1.12 var(--display); let
 .log > li.on::before { background: var(--signal); }
 .anim .evo.js .log > li:not(.on):not(.done) { opacity: .8; }
 .log h3 { margin: .25rem 0 .2rem; font-weight: 600; font-size: 1.08rem; line-height: 1.35; }
-.log p { margin: 0; max-width: 40rem; font-size: .95rem; }
+.log p { margin: 0; max-width: 56ch; font-size: .95rem; }
 .adds { display: flex; flex-wrap: wrap; gap: .35rem; margin: .6rem 0 0; padding: 0; list-style: none; }
 .adds li { font: 500 .75rem/1 var(--mono); padding: .38rem .55rem; border-radius: 999px; background: var(--signal); color: var(--signal-ink); }
 .adds li.more { background: none; color: var(--muted); border: 1px solid var(--line); }
@@ -247,17 +254,17 @@ h2 { margin: 0; font: 800 clamp(1.5rem, 3.4vw, 2.25rem)/1.12 var(--display); let
 .out { margin-top: 2rem; padding: 1rem 1.1rem; background: var(--panel); border: 1px solid var(--line); border-left: 3px solid var(--signal); font-weight: 600; font-size: clamp(1.02rem, 2.2vw, 1.22rem); line-height: 1.4; }
 .out .code { display: block; margin-bottom: .3rem; }
 .out p { margin: 0; }
-.out .out-bridge { margin-bottom: .7rem; font-weight: 400; font-size: .95rem; line-height: 1.55; color: var(--muted); max-width: 46rem; }
+.out .out-bridge { margin-bottom: .7rem; font-weight: 400; font-size: .95rem; line-height: 1.55; color: var(--muted); max-width: 56ch; }
 mark, .n { color: var(--signal-ink); border-radius: 6px; background: linear-gradient(var(--signal), var(--signal)) no-repeat left center / 100% 100%; }
 mark { padding: 0 .15em; }
 
 /* Cases */
 .case-body { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.75rem; }
 @media (min-width: 60rem) { .case-body { grid-template-columns: minmax(0, 1fr) minmax(0, 25rem); gap: 3.5rem; } }
-.story p { margin: 0 0 .9rem; max-width: 40rem; }
+.story p { margin: 0 0 .9rem; max-width: 56ch; }
 .story .go { font: 500 .78rem/1.5 var(--mono); }
 .chips { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; margin: 1.1rem 0 0; padding: 0; list-style: none; }
-.chips li { font: 400 .7rem/1 var(--mono); padding: .42rem .55rem; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); background: var(--bg); }
+.chips li { font: 400 .75rem/1 var(--mono); padding: .42rem .55rem; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); background: var(--bg); }
 .chips li.k { border: 0; background: none; padding-left: 0; }
 .mpanel { align-self: start; min-width: 0; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
 .mpanel > .k { display: block; padding: .7rem 1rem; border-bottom: 1px dashed var(--line); }
@@ -272,7 +279,7 @@ mark { padding: 0 .15em; }
 .metrics p.lim { color: var(--muted); }
 
 .n { font: inherit; font-weight: 600; padding: 0 .22em; margin: 0 -.03em; border: 0; cursor: pointer; }
-.n sup { font: 600 .6em/0 var(--mono); margin-left: .25em; }
+.n sup { font: 600 .75rem/0 var(--mono); margin-left: .25em; }
 .n:hover, .n[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--fg); }
 .anim .n { background-size: 0% 100%; transition: background-size .7s cubic-bezier(.3,.7,.2,1) .15s, box-shadow .15s; }
 .anim .n.seen { background-size: 100% 100%; }
@@ -301,6 +308,7 @@ footer b { color: var(--fg); }
 </head>
 <body>
 <div class="wrap">
+<a class="skip" href="#main">Skip to content</a>
 
 <header class="bar">
   <span><b>María S. López Oller</b><span class="bar-meta"> · measurement spec · v2026.11</span></span>
@@ -316,20 +324,20 @@ footer b { color: var(--fg); }
 
 <nav class="toc" aria-label="On this page">
   <span class="k">Index</span>
-  <a href="#ai-title">AI</a>
   <a href="#cases">Cases</a>
   <a href="#c1">01 Checkout</a>
   <a href="#c2">02 One set of numbers</a>
   <a href="#c3">03 60 brands</a>
   <a href="#c4">04 More leads</a>
   <a href="#c5">05 Person in the loop</a>
+  <a href="#ai-title">AI</a>
   <a href="#evo-title">Changelog</a>
   <a href="#lead">How I lead</a>
   <a href="#built">Built and written</a>
   <a href="#tools">Tools</a>
 </nav>
 
-<main>
+<main id="main" tabindex="-1">
 <section class="hero" aria-labelledby="top">
   <div>
     <div class="who">
@@ -357,46 +365,8 @@ footer b { color: var(--fg); }
   <div><dt class="k">Looking for</dt><dd>Senior and lead roles in analytics, data products, and data and AI governance</dd></div>
   <div><dt class="k">Experience</dt><dd>10+ years in analytics across the UK and Spain: retail, travel, UK government, industrial and health tech</dd></div>
   <div><dt class="k">Based in</dt><dd>Europe, working remotely. EU passport and UK Settled Status</dd></div>
-  <div><dt class="k">Contact</dt><dd><a href="#" data-mail="latigid.zepol.airam">Email</a> · <a href="https://mariaslopezoller.github.io">CV</a> · <a href="https://www.linkedin.com/in/mariaslopezoller">LinkedIn</a></dd></div>
+  <div><dt class="k">Contact</dt><dd><a href="#" data-mail="latigid.zepol.airam">Email</a> <button type="button" class="copy-mail" data-mail="latigid.zepol.airam">Copy email</button> · <a href="https://mariaslopezoller.github.io">CV</a> · <a href="https://www.linkedin.com/in/mariaslopezoller">LinkedIn</a></dd></div>
 </dl>
-
-<section class="sec" aria-labelledby="ai-title">
-  <header class="sec-head">
-    <span class="code">AI</span>
-    <h2 id="ai-title">From trusted data to useful AI</h2>
-    <p>Analytics taught me when a number can be trusted. An AI agent needs the same answer before it acts on data, so that's where I start.</p>
-  </header>
-  <div class="ai-grid">
-    <div class="ai-card">
-      <span class="code">Build</span>
-      <h3>Data products</h3>
-      <p>Co-founder and AI product manager of Nutr(IA) Coach, from concept to beta. I designed the agent architecture and data flows with LLM APIs and Vertex AI on Google Cloud, and I run evals on the LLM features.</p>
-      <ul class="chips"><li>AI agents</li><li>LLM APIs</li><li>Vertex AI</li><li>LLM evals</li></ul>
-    </div>
-    <div class="ai-card">
-      <span class="code">Govern</span>
-      <h3>Who checks the AI</h3>
-      <p>We gave the AI to nutritionists, not the public, so a professional reviews every recommendation before it reaches a client. I'm now studying AI Cybersecurity and Governance with Columbia Engineering.</p>
-      <ul class="chips"><li>Human in the loop</li><li>AI risk</li><li>GDPR</li><li>Columbia, in progress</li></ul>
-    </div>
-    <div class="ai-card">
-      <span class="code">Use</span>
-      <h3>AI in the analysis</h3>
-      <p>At JD Sports I used the OpenAI API to categorise open-text survey answers at scale. Day to day I use AI to automate repetitive tasks, so my own time goes on verifying the output before I sign it off.</p>
-      <ul class="chips"><li>OpenAI API</li><li>Claude Code</li><li>Ollama, local models</li></ul>
-    </div>
-  </div>
-  <div class="flow" aria-label="How a recommendation travels in Nutr(IA) Coach">
-    <span class="k">How I design it · Nutr(IA) Coach</span>
-    <ol>
-      <li style="--i:0">Client data</li>
-      <li style="--i:1">Can it be trusted?</li>
-      <li style="--i:2"><span aria-hidden="true">🤖</span> AI agent drafts</li>
-      <li style="--i:3" class="human">Nutritionist reviews</li>
-      <li style="--i:4">Client</li>
-    </ol>
-  </div>
-</section>
 
 <nav class="tiles" id="cases" aria-label="Case studies">
   <a class="tile" href="#c1"><span class="code">Case 01</span><span class="t-val">+4%</span><span class="t-lab">checkout conversion</span><span class="t-title">A checkout that looked broken</span><span class="t-tags">funnel analysis · voice of customer · three teams aligned</span></a>
@@ -520,6 +490,44 @@ footer b { color: var(--fg); }
     </div>
   </div>
 </article>
+
+<section class="sec" aria-labelledby="ai-title">
+  <header class="sec-head">
+    <span class="code">AI</span>
+    <h2 id="ai-title">From trusted data to useful AI</h2>
+    <p>Analytics taught me when a number can be trusted. An AI agent needs the same answer before it acts on data, so that's where I start.</p>
+  </header>
+  <div class="ai-grid">
+    <div class="ai-card">
+      <span class="code">Build</span>
+      <h3>Data products</h3>
+      <p>Nutr(IA) Coach, <a href="#c5">Case 05</a>: agent architecture and data flows on LLM APIs and Vertex AI, with evals on the LLM features.</p>
+      <ul class="chips"><li>AI agents</li><li>LLM APIs</li><li>Vertex AI</li><li>LLM evals</li></ul>
+    </div>
+    <div class="ai-card">
+      <span class="code">Govern</span>
+      <h3>Who checks the AI</h3>
+      <p>A professional reviews every recommendation before it reaches a client. I'm now studying AI Cybersecurity and Governance with Columbia Engineering.</p>
+      <ul class="chips"><li>Human in the loop</li><li>AI risk</li><li>GDPR</li><li>Columbia, in progress</li></ul>
+    </div>
+    <div class="ai-card">
+      <span class="code">Use</span>
+      <h3>AI in the analysis</h3>
+      <p>At JD Sports, the OpenAI API categorised open-text survey answers at scale (<a href="#c1">Case 01</a>). Day to day, AI takes the repetitive tasks and I verify the output before I sign it off.</p>
+      <ul class="chips"><li>OpenAI API</li><li>Claude Code</li><li>Ollama, local models</li></ul>
+    </div>
+  </div>
+  <div class="flow" aria-label="How a recommendation travels in Nutr(IA) Coach">
+    <span class="k">How I design it · Nutr(IA) Coach</span>
+    <ol>
+      <li style="--i:0">Client data</li>
+      <li style="--i:1">Can it be trusted?</li>
+      <li style="--i:2"><span aria-hidden="true">🤖</span> AI agent drafts</li>
+      <li style="--i:3" class="human">Nutritionist reviews</li>
+      <li style="--i:4">Client</li>
+    </ol>
+  </div>
+</section>
 
 <section class="sec" aria-labelledby="evo-title">
   <header class="sec-head">
@@ -688,7 +696,7 @@ footer b { color: var(--fg); }
 
 <footer>
   <span><b>End of spec</b> · open to analytics, data product, and data and AI governance roles</span>
-  <span><a href="https://mariaslopezoller.github.io">CV</a> · <a href="https://www.linkedin.com/in/mariaslopezoller">LinkedIn</a></span>
+  <span><a href="#" data-mail="latigid.zepol.airam">Email</a> <button type="button" class="copy-mail" data-mail="latigid.zepol.airam">Copy email</button> · <a href="https://mariaslopezoller.github.io">CV</a> · <a href="https://www.linkedin.com/in/mariaslopezoller">LinkedIn</a></span>
 </footer>
 </div>
 
@@ -816,6 +824,23 @@ document.querySelectorAll("a[data-mail]").forEach(function (a) {
   function set() { a.href = "mailto:" + a.getAttribute("data-mail").split("").reverse().join("") + "@" + ["gmail", "com"].join("."); }
   ["pointerdown", "focus", "click"].forEach(function (ev) { a.addEventListener(ev, set); });
 });
+document.querySelectorAll("button.copy-mail").forEach(function (b) {
+  b.setAttribute("aria-live", "polite");
+  b.addEventListener("click", function () {
+    var addr = b.getAttribute("data-mail").split("").reverse().join("") + "@" + ["gmail", "com"].join(".");
+    function done(t) { b.textContent = t; setTimeout(function () { b.textContent = "Copy email"; }, 2500); }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(addr).then(function () { done("Copied"); }, function () { done(addr); });
+    else done(addr);
+  });
+});
+/* The AI flow plays once, when it first comes into view. */
+(function () {
+  var fl = document.querySelector(".flow");
+  if (!fl) return;
+  if (!("IntersectionObserver" in window)) { fl.classList.add("play"); return; }
+  var o = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { fl.classList.add("play"); o.disconnect(); } }, { threshold: 0.6 });
+  o.observe(fl);
+})();
 </script>
 </body>
 </html>
