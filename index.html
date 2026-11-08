@@ -213,7 +213,7 @@ aside h2{font-size:var(--s1)}
     <p class="pitch" lang="en">I build <strong>data governance</strong>, quality and privacy frameworks at enterprise scale, and lead <strong>data and AI enablement</strong> so organisations can trust and use their data.</p>
     <p class="pitch" lang="es">Construyo marcos de <strong>gobierno del dato</strong>, calidad y privacidad a escala empresarial, e impulso la <strong>capacitación en datos e IA</strong> para que las organizaciones puedan confiar en sus datos y usarlos.</p>
     <div class="contact">
-      <a href="mailto:maria.lopez.digital@gmail.com">maria.lopez.digital@gmail.com</a>
+      <a href="#" data-mail="latigid.zepol.airam">Email</a>
       <a href="https://linkedin.com/in/mariaslopezoller">LinkedIn ↗</a>
       <a href="https://bit.ly/PortfolioMariaLopezOller">Portfolio ↗</a>
       <span lang="en">Remote · Europe</span>
@@ -525,4 +525,10 @@ aside h2{font-size:var(--s1)}
   set(hash==="es"||hash==="en" ? hash : saved || ((navigator.language||"en").slice(0,2)==="es" ? "es" : "en"));
   document.querySelectorAll(".switch button").forEach(function(b){b.addEventListener("click",function(){set(b.dataset.set);});});
 })();
+
+/* Email: the address is only assembled when someone uses the link, so it never sits in the page source for scrapers. */
+document.querySelectorAll("a[data-mail]").forEach(function (a) {
+  function set() { a.href = "mailto:" + a.getAttribute("data-mail").split("").reverse().join("") + "@" + ["gmail", "com"].join("."); }
+  ["pointerdown", "focus", "click"].forEach(function (ev) { a.addEventListener(ev, set); });
+});
 </script>
