@@ -65,11 +65,11 @@ a { color: var(--link); text-underline-offset: .2em; }
 a:hover { color: var(--fg); }
 :focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; }
 .wrap { max-width: 76rem; margin-inline: auto; }
-.code { font: 500 .72rem/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--signal-text); }
+.code { font: 500 .75rem/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--signal-text); }
 .k { font: 500 .7rem/1.4 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 
 /* Top bar */
-.bar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .4rem 1.5rem; padding-block: .9rem; border-bottom: 1px solid var(--line); font: 500 .74rem/1.5 var(--mono); letter-spacing: .04em; text-transform: uppercase; }
+.bar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .4rem 1.5rem; padding-block: .9rem; border-bottom: 1px solid var(--line); font: 500 .76rem/1.5 var(--mono); letter-spacing: .04em; text-transform: uppercase; }
 .bar span { color: var(--muted); }
 .bar b { color: var(--fg); font-weight: 700; }
 .bar nav { display: flex; flex-wrap: wrap; gap: .2rem 1.1rem; }
@@ -94,6 +94,10 @@ h1 { margin: 0; font: 800 clamp(1.85rem, 4.4vw, 3.2rem)/1.08 var(--display); let
 .readout { --dur: 5s; min-width: 0; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1rem 1.1rem 1.05rem; }
 .ro-head { display: flex; justify-content: space-between; align-items: center; padding-bottom: .7rem; border-bottom: 1px dashed var(--line); }
 .ro-head .k::before { content: ""; display: inline-block; width: .45rem; height: .45rem; margin-right: .5rem; border-radius: 50%; background: var(--signal); vertical-align: .05em; }
+.ro-right { display: flex; align-items: center; gap: .6rem; }
+.ro-pause { font: 500 .75rem/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--fg); background: none; border: 1px solid var(--line); border-radius: 999px; padding: .45rem .7rem; min-height: 24px; cursor: pointer; }
+.ro-pause:hover { border-color: var(--signal-text); }
+.ro-pause[hidden] { display: none; }
 .anim .ro-head .k::before { animation: blink 2s ease-in-out infinite; }
 @keyframes blink { 50% { opacity: .25; } }
 .ro-val { margin-top: .9rem; font: 800 clamp(2.6rem, 7vw, 3.5rem)/1 var(--display); letter-spacing: -.045em; color: var(--signal-text); }
@@ -105,7 +109,7 @@ h1 { margin: 0; font: 800 clamp(1.85rem, 4.4vw, 3.2rem)/1.08 var(--display); let
 .anim .ro-body.swap { animation: ro-in .45s ease; }
 @keyframes ro-in { from { opacity: .15; transform: translateY(5px); } }
 .ro-dots { display: flex; gap: .4rem; margin-top: .9rem; }
-.ro-dot { flex: 1; padding: .55rem 0; border: 0; background: none; cursor: pointer; }
+.ro-dot { flex: 1; padding: .7rem 0; border: 0; background: none; cursor: pointer; }
 .ro-dot i { display: block; position: relative; height: 3px; overflow: hidden; background: var(--line); }
 .ro-dot[aria-current="true"] i::after { content: ""; position: absolute; inset: 0; background: var(--signal); transform-origin: left center; }
 .anim .readout:not(.paused) .ro-dot[aria-current="true"] i::after { animation: ro-fill var(--dur) linear both; }
@@ -143,7 +147,7 @@ h1 { margin: 0; font: 800 clamp(1.85rem, 4.4vw, 3.2rem)/1.08 var(--display); let
 .flow { margin-top: 1.25rem; padding: .9rem 1.1rem 1.1rem; background: var(--bg); border: 1px solid var(--line); border-radius: 14px; }
 .flow ol { list-style: none; margin: .8rem 0 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; }
 @media (min-width: 48rem) { .flow ol { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1.4rem; } }
-.flow li { position: relative; padding: .65rem .7rem; border: 1px solid var(--line); border-radius: 10px; background: var(--panel); font: 500 .74rem/1.35 var(--mono); text-align: center; }
+.flow li { position: relative; padding: .65rem .7rem; border: 1px solid var(--line); border-radius: 10px; background: var(--panel); font: 500 .76rem/1.35 var(--mono); text-align: center; }
 .flow li.human { border-style: dashed; border-color: var(--signal-text); }
 .flow li:not(:last-child)::after { content: "\2193"; position: absolute; left: 50%; bottom: -1rem; transform: translateX(-50%); color: var(--muted); font-size: .8rem; line-height: 1rem; }
 @media (min-width: 48rem) { .flow li:not(:last-child)::after { content: "\2192"; left: auto; right: -1.15rem; bottom: auto; top: 50%; transform: translateY(-50%); } }
@@ -152,17 +156,17 @@ h1 { margin: 0; font: 800 clamp(1.85rem, 4.4vw, 3.2rem)/1.08 var(--display); let
 
 /* Index: one line that scrolls sideways on a phone, stuck to the top of the screen. */
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
-.toc { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; display: flex; align-items: center; gap: .3rem 1.1rem; overflow-x: auto; white-space: nowrap; scrollbar-width: none; padding-block: .7rem; background: var(--bg); border-bottom: 1px solid var(--line); font: 500 .72rem/1.4 var(--mono); }
+.toc { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; display: flex; align-items: center; gap: .3rem 1.1rem; overflow-x: auto; white-space: nowrap; scrollbar-width: none; padding-block: .7rem; background: var(--bg); border-bottom: 1px solid var(--line); font: 500 .75rem/1.4 var(--mono); }
 .toc::-webkit-scrollbar { display: none; }
 .toc .k { color: var(--signal-text); }
 .toc a { color: var(--muted); text-decoration: none; }
 .toc a:hover, .toc a:focus-visible { color: var(--fg); }
 .res { display: flex; flex-wrap: wrap; align-items: center; gap: .45rem .6rem; margin: 1.1rem 0 0; }
-.res a, .res .soon { font: 500 .74rem/1.2 var(--mono); padding: .5rem .7rem; border: 1px solid var(--line); border-radius: 999px; text-decoration: none; }
+.res a, .res .soon { font: 500 .76rem/1.2 var(--mono); padding: .5rem .7rem; border: 1px solid var(--line); border-radius: 999px; text-decoration: none; }
 .res a { color: var(--fg); border-color: var(--signal-text); }
+.res .soon { color: var(--muted); border-style: dashed; }
 .res a::after { content: " \2197"; color: var(--signal-text); }
 .res a:hover, .res a:focus-visible { background: var(--panel-hi); color: var(--fg); }
-.res .soon { color: var(--muted); border-style: dashed; }
 
 /* Section heads */
 .sec { margin-top: clamp(3.5rem, 8vw, 5.5rem); }
@@ -232,11 +236,11 @@ h2 { margin: 0; font: 800 clamp(1.5rem, 3.4vw, 2.25rem)/1.12 var(--display); let
 .log > li::before { content: ""; position: absolute; left: -1.38rem; top: .45rem; width: .65rem; height: .65rem; border-radius: 50%; background: var(--bg); border: 2px solid var(--line); z-index: 1; transition: border-color .3s, background .3s; }
 .log > li.done::before, .log > li.on::before { border-color: var(--signal); }
 .log > li.on::before { background: var(--signal); }
-.anim .evo.js .log > li:not(.on):not(.done) { opacity: .55; }
+.anim .evo.js .log > li:not(.on):not(.done) { opacity: .8; }
 .log h3 { margin: .25rem 0 .2rem; font-weight: 600; font-size: 1.08rem; line-height: 1.35; }
 .log p { margin: 0; max-width: 40rem; font-size: .95rem; }
 .adds { display: flex; flex-wrap: wrap; gap: .35rem; margin: .6rem 0 0; padding: 0; list-style: none; }
-.adds li { font: 500 .66rem/1 var(--mono); padding: .35rem .45rem; border-radius: 999px; background: var(--signal); color: var(--signal-ink); }
+.adds li { font: 500 .75rem/1 var(--mono); padding: .38rem .55rem; border-radius: 999px; background: var(--signal); color: var(--signal-ink); }
 .adds li.more { background: none; color: var(--muted); border: 1px solid var(--line); }
 .log .next h3 { color: var(--muted); }
 .log .next::before { border-style: dashed; }
@@ -268,7 +272,7 @@ mark { padding: 0 .15em; }
 .metrics p.lim { color: var(--muted); }
 
 .n { font: inherit; font-weight: 600; padding: 0 .22em; margin: 0 -.03em; border: 0; cursor: pointer; }
-.n sup { font: 600 .55em/0 var(--mono); margin-left: .25em; opacity: .7; }
+.n sup { font: 600 .6em/0 var(--mono); margin-left: .25em; }
 .n:hover, .n[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--fg); }
 .anim .n { background-size: 0% 100%; transition: background-size .7s cubic-bezier(.3,.7,.2,1) .15s, box-shadow .15s; }
 .anim .n.seen { background-size: 100% 100%; }
@@ -314,12 +318,12 @@ footer b { color: var(--fg); }
   <span class="k">Index</span>
   <a href="#ai-title">AI</a>
   <a href="#cases">Cases</a>
-  <a href="#evo-title">Changelog</a>
   <a href="#c1">01 Checkout</a>
   <a href="#c2">02 One set of numbers</a>
   <a href="#c3">03 60 brands</a>
   <a href="#c4">04 More leads</a>
   <a href="#c5">05 Person in the loop</a>
+  <a href="#evo-title">Changelog</a>
   <a href="#lead">How I lead</a>
   <a href="#built">Built and written</a>
   <a href="#tools">Tools</a>
@@ -333,10 +337,10 @@ footer b { color: var(--fg); }
       <p class="role"><b>Senior analytics</b> · <b>data products</b> · <b>data &amp; AI governance</b></p>
     </div>
     <p class="q">Can you trust this data enough to decide with it, or to let an AI agent <span aria-hidden="true">🤖</span> act on it?</p>
-    <p class="lead">I've spent 10+ years in analytics making numbers trustworthy. Now I build data products on top of them: AI agents, LLM features with evals, and a person in the loop where it matters. Every number on this page comes with how it was measured and what it can't tell you. Select one to see.</p>
+    <p class="lead">I've spent 10+ years in analytics making numbers trustworthy. Now I build data products on top of them: AI agents, LLM features with evals, and a person in the loop where it matters. Every number on this page comes with how it was measured and what it can't tell you. Select a highlighted number to see both.</p>
   </div>
   <aside class="readout" aria-label="Headline numbers and how each was measured">
-    <div class="ro-head"><span class="k">Readout</span><span class="code" id="ro-code">Case 01</span></div>
+    <div class="ro-head"><span class="k">Readout</span><span class="ro-right"><span class="code" id="ro-code">Case 01</span><button type="button" class="ro-pause" id="ro-pause" aria-pressed="false">Pause</button></span></div>
     <div class="ro-body" id="ro-body">
       <div class="ro-val" id="ro-val">+4%</div>
       <div class="ro-label" id="ro-label">Checkout conversion · JD Sports Group</div>
@@ -402,6 +406,120 @@ footer b { color: var(--fg); }
   <a class="tile" href="#c5"><span class="code">Case 05</span><span class="t-val">1 of 12</span><span class="t-lab">ventures in INCOOVA's final phase, from 168</span><span class="t-title">Keeping a person in the loop</span><span class="t-tags">AI product · LLM evals · human in the loop</span></a>
   <a class="tile" href="#lead"><span class="code">Lead</span><span class="t-val">4</span><span class="t-lab">people managed, plus teams that don't report to me</span><span class="t-title">How I lead</span><span class="t-tags">line management · programme leadership · assessing services</span></a>
 </nav>
+
+<article class="sec" aria-labelledby="c1">
+  <header class="sec-head">
+    <span class="code">Case 01</span>
+    <h2 id="c1">A checkout that looked broken</h2>
+    <span class="where">JD Sports Group (Sprinter and Sportzone) · Senior Digital &amp; Marketing Data Analyst · 2021–2024</span>
+  </header>
+  <div class="case-body">
+    <div class="story">
+      <p>The business wanted the checkout redesigned. Before anyone committed engineering time, I compared the funnel step by step with the retail benchmark, and found a page carrying <button type="button" class="n" data-m="m1" aria-pressed="false">40%<sup>M1</sup></button> of checkout traffic that had never been tracked. I fixed that first.</p>
+      <p>Three teams wanted three different fixes. Marketing wanted Customer Care on video calls, Customer Care wanted chat on product pages, and the evidence pointed at the checkout. I showed each team, step by step, what data existed at each stage and what each option would tell us, and we started with the checkout.</p>
+      <p>Then we went after the reasons, with a Hotjar survey categorised through the OpenAI API and live chat reasons logged by Customer Care in Salesforce. Payment failures came out as the main cause. After the changes shipped, checkout conversion rose <button type="button" class="n" data-m="m2" aria-pressed="false">4%<sup>M2</sup></button> against the pre-launch baseline, and Customer Care kept using the weekly report in its own meetings.</p>
+      <p class="res"><span class="k">Resources</span><a href="https://rebolicando.blogspot.com/2026/02/a-hole-in-checkout-funnel-fix-tracking.html">Blog post · the full story</a></p>
+      <ul class="chips"><li class="k">Stack</li><li>GA4</li><li>Google Tag Manager</li><li>BigQuery</li><li>SQL</li><li>Python</li><li>Hotjar</li><li>Microsoft Clarity</li><li>OpenAI API</li><li>Salesforce</li></ul>
+    </div>
+    <div class="mpanel">
+      <span class="k">Metrics · how they were measured</span>
+      <ul class="metrics">
+        <li id="m1"><div class="m-top"><span class="code">M1</span><span class="m-val">40%</span><span class="m-lab">of checkout traffic</span></div><p>Share of checkout sessions passing through the sign in, guest or register page, once it could be measured.</p></li>
+        <li id="m2"><div class="m-top"><span class="code">M2</span><span class="m-val">+4%</span><span class="m-lab">checkout conversion</span></div><p>Relative lift, against the pre-launch baseline.</p><p class="lim">It's a before-and-after comparison, not an A/B test, so it can't isolate seasonality.</p></li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<article class="sec" aria-labelledby="c2">
+  <header class="sec-head">
+    <span class="code">Case 02</span>
+    <h2 id="c2">One set of numbers for everyone</h2>
+    <span class="where">JD Sports Group · product owner of an 8-project measurement programme · 2021–2024</span>
+  </header>
+  <div class="case-body">
+    <div class="story">
+      <p>Marketing and ecommerce didn't trust each other's figures. With the director, I started from a measurement plan and agreed objectives with each area before defining any KPI. I ordered the backlog by dependency and by how many teams each piece unblocked, so no one built a metric that hadn't been agreed. Each delivery came with a working dashboard and training.</p>
+      <p>New analytics requests grew <button type="button" class="n" data-m="m3" aria-pressed="false">70%<sup>M3</sup></button> year on year, with <button type="button" class="n" data-m="m4" aria-pressed="false">90%<sup>M4</sup></button> stakeholder satisfaction.</p>
+      <p class="res"><span class="k">Resources</span><span class="soon">Presentation available on request</span></p>
+      <ul class="chips"><li class="k">Stack</li><li>Measurement plan</li><li>KPI definitions</li><li>Looker</li><li>Looker Studio</li><li>Power BI</li><li>Jira</li></ul>
+    </div>
+    <div class="mpanel">
+      <span class="k">Metrics · how they were measured</span>
+      <ul class="metrics">
+        <li id="m3"><div class="m-top"><span class="code">M3</span><span class="m-val">+70%</span><span class="m-lab">new analytics requests</span></div><p>New requests to the analytics team, year on year.</p><p class="lim">It counts demand from the teams and doesn't measure how much they used each dashboard.</p></li>
+        <li id="m4"><div class="m-top"><span class="code">M4</span><span class="m-val">90%</span><span class="m-lab">stakeholder satisfaction</span></div><p>From the survey run with stakeholders when each project was handed over to business as usual.</p></li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<article class="sec" aria-labelledby="c3">
+  <header class="sec-head">
+    <span class="code">Case 03</span>
+    <h2 id="c3">One set of rules for 60 brands</h2>
+    <span class="where">Ingersoll Rand · Web Data Analyst, Customer Data Analytics Center of Excellence · 2026</span>
+  </header>
+  <div class="case-body">
+    <div class="story">
+      <p>Each brand collected web data its own way. I created the Google Tag Manager governance framework for <button type="button" class="n" data-m="m5" aria-pressed="false">60 brands<sup>M5</sup></button> and more than 100 websites, across every region including China.</p>
+      <p>I led the migration of the consent management platform, including the Consent Mode validation under GDPR and CCPA, and built the business case for Google Analytics 360 by measuring what poor data quality was costing. I also ran BigQuery analysis for the brands' marketing teams and put in place what they asked for.</p>
+      <ul class="chips"><li class="k">Stack</li><li>Google Tag Manager</li><li>Consent Mode v2</li><li>Chrome DevTools</li><li>Google Tag Assistant</li><li>GA4</li><li>BigQuery</li></ul>
+    </div>
+    <div class="mpanel">
+      <span class="k">Metrics · how they were measured</span>
+      <ul class="metrics">
+        <li id="m5"><div class="m-top"><span class="code">M5</span><span class="m-val">60</span><span class="m-lab">brands</span></div><p>60 brands and more than 100 websites on 5 Google Tag Manager containers.</p><p class="lim">The scope of the work, not a result. I have no before-and-after figure to show for it.</p></li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<article class="sec" aria-labelledby="c4">
+  <header class="sec-head">
+    <span class="code">Case 04</span>
+    <h2 id="c4">More leads on less budget</h2>
+    <span class="where">aBoatTime and BoatGrid · Head of Digital Marketing · 2015</span>
+  </header>
+  <div class="case-body">
+    <div class="story">
+      <p>The target was double the previous year's leads while the budget was being cut. I led a team of four, three marketers and a designer, and ran the marketing relationship with white-label partners. I agreed what counted as a lead, read the results channel by channel and moved the money to what was paying back.</p>
+      <p>Leads rose <button type="button" class="n" data-m="m6" aria-pressed="false">112%<sup>M6</sup></button> in six months with a marketing budget <button type="button" class="n" data-m="m7" aria-pressed="false">48%<sup>M7</sup></button> lower, and cost per lead went from <button type="button" class="n" data-m="m8" aria-pressed="false">€36.20 to €9.38<sup>M8</sup></button>.</p>
+      <p class="res"><span class="k">Resources</span><a href="presentations/more-leads-on-less-budget-aboattime-2015.pdf" target="_blank" rel="noopener">Presentation · PDF, 10 slides</a></p>
+      <ul class="chips"><li class="k">Stack</li><li>Google Analytics</li><li>Google Ads</li><li>Facebook Ads</li><li>Google Display Network</li><li>Google Trends</li><li>CRM</li></ul>
+    </div>
+    <div class="mpanel">
+      <span class="k">Metrics · how they were measured</span>
+      <ul class="metrics">
+        <li id="m6"><div class="m-top"><span class="code">M6</span><span class="m-val">+112%</span><span class="m-lab">leads</span></div><p>May to October 2015 against the same months of 2014. A lead was a boat request form, a customer call or an online chat. The website alone grew 60%; white-label partners made up the rest.</p></li>
+        <li id="m7"><div class="m-top"><span class="code">M7</span><span class="m-val">−48%</span><span class="m-lab">marketing budget</span></div><p>Marketing budget, year on year. Partners took a share of sales with no fixed cost, so their leads didn't add to this budget.</p></li>
+        <li id="m8"><div class="m-top"><span class="code">M8</span><span class="m-val">€9.38</span><span class="m-lab">cost per lead, from €36.20</span></div><p class="lim">My role was marketing, so I had no booking or revenue data and can't show lead-to-booking conversion. The company no longer exists; the figures come from my 2015 report.</p></li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<article class="sec" aria-labelledby="c5">
+  <header class="sec-head">
+    <span class="code">Case 05</span>
+    <h2 id="c5">Keeping a person in the loop</h2>
+    <span class="where">Nutr(IA) Coach · co-founder and AI product manager · 2024 to now, in beta</span>
+  </header>
+  <div class="case-body">
+    <div class="story">
+      <p>Nutrition professionals had no AI tool built around their client work. I took the product from concept to beta. I coordinate the team and decide what to build next from interviews with more than ten of them.</p>
+      <p>We chose to give the AI to nutritionists only, so a professional reviews each recommendation before it reaches a client, and I run evals on the LLM features. The project reached the final phase of the INCOOVA incubator, <button type="button" class="n" data-m="m9" aria-pressed="false">one of 12<sup>M9</sup></button> ventures.</p>
+      <p class="res"><span class="k">Resources</span><a href="https://rebolicando.blogspot.com/2025/04/who-should-see-ais-advice-first-why-we.html">Blog post · why we put nutritionists in the loop</a></p>
+      <ul class="chips"><li class="k">Stack</li><li>LLM APIs</li><li>LLM evals</li><li>Vertex AI</li><li>Google Cloud</li><li>BigQuery</li></ul>
+    </div>
+    <div class="mpanel">
+      <span class="k">Metrics · how they were measured</span>
+      <ul class="metrics">
+        <li id="m9"><div class="m-top"><span class="code">M9</span><span class="m-val">1 of 12</span><span class="m-lab">ventures in the final phase</span></div><p>From 168 ideas. Twelve projects reached the final phase; one withdrew, so <a href="https://www.murciadiario.com/actualidad-economica/actualidad/incoova/20251219161341137831.html">the press report</a> mentions eleven.</p><p class="lim">The product has no paying clients yet.</p></li>
+      </ul>
+    </div>
+  </div>
+</article>
 
 <section class="sec" aria-labelledby="evo-title">
   <header class="sec-head">
@@ -516,120 +634,6 @@ footer b { color: var(--fg); }
   <div class="out"><span class="code">Output</span><p class="out-bridge">Sociology taught me to find out what stakeholders actually need, which isn't always what they ask for. My grounding in software development and data lets me turn that into something the technical team can build. I work as the bridge between the two.</p><p>Together they answer one question: can you <mark>trust this data</mark> enough to decide with it, or to let an AI agent <span aria-hidden="true">🤖</span> act on it?</p></div>
 </section>
 
-<article class="sec" aria-labelledby="c1">
-  <header class="sec-head">
-    <span class="code">Case 01</span>
-    <h2 id="c1">A checkout that looked broken</h2>
-    <span class="where">JD Sports Group (Sprinter and Sportzone) · Senior Digital &amp; Marketing Data Analyst · 2021–2024</span>
-  </header>
-  <div class="case-body">
-    <div class="story">
-      <p>The business wanted the checkout redesigned. Before anyone committed engineering time, I compared the funnel step by step with the retail benchmark, and found a page carrying <button type="button" class="n" data-m="m1" aria-pressed="false">40%<sup>M1</sup></button> of checkout traffic that had never been tracked. I fixed that first.</p>
-      <p>Three teams wanted three different fixes. Marketing wanted Customer Care on video calls, Customer Care wanted chat on product pages, and the evidence pointed at the checkout. I showed each team, step by step, what data existed at each stage and what each option would tell us, and we started with the checkout.</p>
-      <p>Then we went after the reasons, with a Hotjar survey categorised through the OpenAI API and live chat reasons logged by Customer Care in Salesforce. Payment failures came out as the main cause. After the changes shipped, checkout conversion rose <button type="button" class="n" data-m="m2" aria-pressed="false">4%<sup>M2</sup></button> against the pre-launch baseline, and Customer Care kept using the weekly report in its own meetings.</p>
-      <p class="res"><span class="k">Resources</span><a href="https://rebolicando.blogspot.com/2026/02/a-hole-in-checkout-funnel-fix-tracking.html">Blog post · the full story</a><span class="soon">Presentation · 11 slides, coming soon</span></p>
-      <ul class="chips"><li class="k">Stack</li><li>GA4</li><li>Google Tag Manager</li><li>BigQuery</li><li>SQL</li><li>Python</li><li>Hotjar</li><li>Microsoft Clarity</li><li>OpenAI API</li><li>Salesforce</li></ul>
-    </div>
-    <div class="mpanel">
-      <span class="k">Metrics · how they were measured</span>
-      <ul class="metrics">
-        <li id="m1"><div class="m-top"><span class="code">M1</span><span class="m-val">40%</span><span class="m-lab">of checkout traffic</span></div><p>Share of checkout sessions passing through the sign in, guest or register page, once it could be measured.</p></li>
-        <li id="m2"><div class="m-top"><span class="code">M2</span><span class="m-val">+4%</span><span class="m-lab">checkout conversion</span></div><p>Relative lift, against the pre-launch baseline.</p><p class="lim">It's a before-and-after comparison, not an A/B test, so it can't isolate seasonality.</p></li>
-      </ul>
-    </div>
-  </div>
-</article>
-
-<article class="sec" aria-labelledby="c2">
-  <header class="sec-head">
-    <span class="code">Case 02</span>
-    <h2 id="c2">One set of numbers for everyone</h2>
-    <span class="where">JD Sports Group · product owner of an 8-project measurement programme · 2021–2024</span>
-  </header>
-  <div class="case-body">
-    <div class="story">
-      <p>Marketing and ecommerce didn't trust each other's figures. With the director, I started from a measurement plan and agreed objectives with each area before defining any KPI. I ordered the backlog by dependency and by how many teams each piece unblocked, so no one built a metric that hadn't been agreed. Each delivery came with a working dashboard and training.</p>
-      <p>New analytics requests grew <button type="button" class="n" data-m="m3" aria-pressed="false">70%<sup>M3</sup></button> year on year, with <button type="button" class="n" data-m="m4" aria-pressed="false">90%<sup>M4</sup></button> stakeholder satisfaction.</p>
-      <p class="res"><span class="k">Resources</span><span class="soon">Presentation available on request</span></p>
-      <ul class="chips"><li class="k">Stack</li><li>Measurement plan</li><li>KPI definitions</li><li>Looker</li><li>Looker Studio</li><li>Power BI</li><li>Jira</li></ul>
-    </div>
-    <div class="mpanel">
-      <span class="k">Metrics · how they were measured</span>
-      <ul class="metrics">
-        <li id="m3"><div class="m-top"><span class="code">M3</span><span class="m-val">+70%</span><span class="m-lab">new analytics requests</span></div><p>New requests to the analytics team, year on year.</p><p class="lim">It counts demand from the teams and doesn't measure how much they used each dashboard.</p></li>
-        <li id="m4"><div class="m-top"><span class="code">M4</span><span class="m-val">90%</span><span class="m-lab">stakeholder satisfaction</span></div><p>From the survey run with stakeholders when each project was handed over to business as usual.</p></li>
-      </ul>
-    </div>
-  </div>
-</article>
-
-<article class="sec" aria-labelledby="c3">
-  <header class="sec-head">
-    <span class="code">Case 03</span>
-    <h2 id="c3">One set of rules for 60 brands</h2>
-    <span class="where">Ingersoll Rand · Web Data Analyst, Customer Data Analytics Center of Excellence · 2026</span>
-  </header>
-  <div class="case-body">
-    <div class="story">
-      <p>Each brand collected web data its own way. I created the Google Tag Manager governance framework for <button type="button" class="n" data-m="m5" aria-pressed="false">60 brands<sup>M5</sup></button> and more than 100 websites, across every region including China.</p>
-      <p>I led the migration of the consent management platform, including the Consent Mode validation under GDPR and CCPA, and built the business case for Google Analytics 360 by measuring what poor data quality was costing. I also ran BigQuery analysis for the brands' marketing teams and put in place what they asked for.</p>
-      <ul class="chips"><li class="k">Stack</li><li>Google Tag Manager</li><li>Consent Mode v2</li><li>Chrome DevTools</li><li>Google Tag Assistant</li><li>GA4</li><li>BigQuery</li></ul>
-    </div>
-    <div class="mpanel">
-      <span class="k">Metrics · how they were measured</span>
-      <ul class="metrics">
-        <li id="m5"><div class="m-top"><span class="code">M5</span><span class="m-val">60</span><span class="m-lab">brands</span></div><p>60 brands and more than 100 websites on 5 Google Tag Manager containers.</p><p class="lim">The scope of the work, not a result. I have no before-and-after figure to show for it.</p></li>
-      </ul>
-    </div>
-  </div>
-</article>
-
-<article class="sec" aria-labelledby="c4">
-  <header class="sec-head">
-    <span class="code">Case 04</span>
-    <h2 id="c4">More leads on less budget</h2>
-    <span class="where">aBoatTime and BoatGrid · Head of Digital Marketing · 2015</span>
-  </header>
-  <div class="case-body">
-    <div class="story">
-      <p>The target was double the previous year's leads while the budget was being cut. I led a team of four, three marketers and a designer, and ran the marketing relationship with white-label partners. I agreed what counted as a lead, read the results channel by channel and moved the money to what was paying back.</p>
-      <p>Leads rose <button type="button" class="n" data-m="m6" aria-pressed="false">112%<sup>M6</sup></button> in six months with a marketing budget <button type="button" class="n" data-m="m7" aria-pressed="false">48%<sup>M7</sup></button> lower, and cost per lead went from <button type="button" class="n" data-m="m8" aria-pressed="false">€36.20 to €9.38<sup>M8</sup></button>.</p>
-      <p class="res"><span class="k">Resources</span><a href="presentations/more-leads-on-less-budget-aboattime-2015.pdf" target="_blank" rel="noopener">Presentation · PDF, 10 slides</a></p>
-      <ul class="chips"><li class="k">Stack</li><li>Google Analytics</li><li>Google Ads</li><li>Facebook Ads</li><li>Google Display Network</li><li>Google Trends</li><li>CRM</li></ul>
-    </div>
-    <div class="mpanel">
-      <span class="k">Metrics · how they were measured</span>
-      <ul class="metrics">
-        <li id="m6"><div class="m-top"><span class="code">M6</span><span class="m-val">+112%</span><span class="m-lab">leads</span></div><p>May to October 2015 against the same months of 2014. A lead was a boat request form, a customer call or an online chat. The website alone grew 60%; white-label partners made up the rest.</p></li>
-        <li id="m7"><div class="m-top"><span class="code">M7</span><span class="m-val">−48%</span><span class="m-lab">marketing budget</span></div><p>Marketing budget, year on year. Partners took a share of sales with no fixed cost, so their leads didn't add to this budget.</p></li>
-        <li id="m8"><div class="m-top"><span class="code">M8</span><span class="m-val">€9.38</span><span class="m-lab">cost per lead, from €36.20</span></div><p class="lim">My role was marketing, so I had no booking or revenue data and can't show lead-to-booking conversion. The company no longer exists; the figures come from my 2015 report.</p></li>
-      </ul>
-    </div>
-  </div>
-</article>
-
-<article class="sec" aria-labelledby="c5">
-  <header class="sec-head">
-    <span class="code">Case 05</span>
-    <h2 id="c5">Keeping a person in the loop</h2>
-    <span class="where">Nutr(IA) Coach · co-founder and AI product manager · 2024 to now, in beta</span>
-  </header>
-  <div class="case-body">
-    <div class="story">
-      <p>Nutrition professionals had no AI tool built around their client work. I took the product from concept to beta. I coordinate the team and decide what to build next from interviews with more than ten of them.</p>
-      <p>We chose to give the AI to nutritionists only, so a professional reviews each recommendation before it reaches a client, and I run evals on the LLM features. The project reached the final phase of the INCOOVA incubator, <button type="button" class="n" data-m="m9" aria-pressed="false">one of 12<sup>M9</sup></button> ventures.</p>
-      <p class="res"><span class="k">Resources</span><a href="https://rebolicando.blogspot.com/2025/04/who-should-see-ais-advice-first-why-we.html">Blog post · why we put nutritionists in the loop</a></p>
-      <ul class="chips"><li class="k">Stack</li><li>LLM APIs</li><li>LLM evals</li><li>Vertex AI</li><li>Google Cloud</li><li>BigQuery</li></ul>
-    </div>
-    <div class="mpanel">
-      <span class="k">Metrics · how they were measured</span>
-      <ul class="metrics">
-        <li id="m9"><div class="m-top"><span class="code">M9</span><span class="m-val">1 of 12</span><span class="m-lab">ventures in the final phase</span></div><p>From 168 ideas. Twelve projects reached the final phase; one withdrew, so <a href="https://www.murciadiario.com/actualidad-economica/actualidad/incoova/20251219161341137831.html">the press report</a> mentions eleven.</p><p class="lim">The product has no paying clients yet.</p></li>
-      </ul>
-    </div>
-  </div>
-</article>
-
 <section class="sec" aria-labelledby="lead">
   <header class="sec-head">
     <span class="code">Leadership</span>
@@ -723,7 +727,7 @@ footer b { color: var(--fg); }
     b.type = "button"; b.className = "ro-dot";
     b.setAttribute("aria-label", "Show " + it.val + ", " + it.label);
     b.innerHTML = "<i></i>";
-    b.addEventListener("click", function () { ro.classList.add("paused"); stop(); show(k); });
+    b.addEventListener("click", function () { pause(); show(k); });
     dots.appendChild(b);
   });
   var dotEls = [].slice.call(dots.children);
@@ -738,9 +742,15 @@ footer b { color: var(--fg); }
   function stop() { clearInterval(timer); timer = null; }
   function start() { stop(); if (!motion || ro.classList.contains("paused")) return; timer = setInterval(function () { show((cur + 1) % items.length); }, dur); }
   dotEls[0].setAttribute("aria-current", "true");
+  var pb = document.getElementById("ro-pause");
+  function pause() { ro.classList.add("paused"); stop(); pb.textContent = "Play"; pb.setAttribute("aria-pressed", "true"); }
+  function play() { ro.classList.remove("paused", "hold"); pb.textContent = "Pause"; pb.setAttribute("aria-pressed", "false"); show((cur + 1) % items.length); start(); }
+  if (!motion) pb.hidden = true;
+  pb.addEventListener("click", function () { ro.classList.contains("paused") ? play() : pause(); });
   ro.addEventListener("mouseenter", function () { stop(); ro.classList.add("hold"); });
   ro.addEventListener("mouseleave", function () { ro.classList.remove("hold"); if (!ro.classList.contains("paused")) { show(cur); start(); } });
   ro.addEventListener("focusin", function () { stop(); ro.classList.add("hold"); });
+  ro.addEventListener("focusout", function (e) { if (ro.contains(e.relatedTarget)) return; ro.classList.remove("hold"); if (!ro.classList.contains("paused")) start(); });
   start();
 
   /* Marker sweeps over each number the first time it comes into view. */
