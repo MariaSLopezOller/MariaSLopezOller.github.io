@@ -63,7 +63,7 @@ body {
 }
 a { color: var(--link); text-underline-offset: .2em; }
 a:hover { color: var(--fg); }
-:focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--signal-text); outline-offset: 3px; }
 .wrap { max-width: 76rem; margin-inline: auto; }
 .code { font: 500 .75rem/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--signal-text); }
 .k { font: 500 .75rem/1.4 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
@@ -91,7 +91,7 @@ h1 { margin: 0; font: 800 clamp(1.85rem, 4.4vw, 3.2rem)/1.08 var(--display); let
 .lead { margin: 1.25rem 0 0; max-width: 54ch; color: var(--muted); font-size: 1.1rem; }
 
 /* Readout: the page's idea in one panel. A number, then how it was measured. */
-.readout { --dur: 5s; min-width: 0; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1rem 1.1rem 1.05rem; }
+.readout { --dur: 9s; min-width: 0; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1rem 1.1rem 1.05rem; }
 .ro-head { display: flex; justify-content: space-between; align-items: center; padding-bottom: .7rem; border-bottom: 1px dashed var(--line); }
 .ro-head .k::before { content: ""; display: inline-block; width: .45rem; height: .45rem; margin-right: .5rem; border-radius: 50%; background: var(--signal); vertical-align: .05em; }
 .ro-right { display: flex; align-items: center; gap: .6rem; }
@@ -217,6 +217,14 @@ h2 { margin: 0; font: 800 clamp(1.5rem, 3.4vw, 2.25rem)/1.12 var(--display); let
   .b-count { margin: 0; white-space: nowrap; }
 }
 @media (max-width: 39.99rem) {
+  .lead-more { display: none; }
+  .lead { font-size: 1rem; }
+  .spec { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .spec div { padding: .7rem .75rem .8rem; }
+  .spec dd { font-size: .88rem; }
+  .tile { padding: .8rem .9rem .9rem; }
+  .t-tags { display: none; }
+  .t-title { margin-top: .4rem; }
   .bar-meta { display: none; }
   .bar { gap: .35rem 1rem; }
   .bar nav { gap: .2rem .75rem; letter-spacing: 0; }
@@ -345,10 +353,10 @@ footer b { color: var(--fg); }
       <p class="role"><b>Senior analytics</b> · <b>data products</b> · <b>data &amp; AI governance</b></p>
     </div>
     <p class="q">Can you trust this data enough to decide with it, or to let an AI agent <span aria-hidden="true">🤖</span> act on it?</p>
-    <p class="lead">I've spent 10+ years in analytics making numbers trustworthy. Now I build data products on top of them: AI agents, LLM features with evals, and a person in the loop where it matters. Every number on this page comes with how it was measured and what it can't tell you. Select a highlighted number to see both.</p>
+    <p class="lead">I've spent 10+ years in analytics making numbers trustworthy. Now I build data products on top of them: AI agents, LLM features with evals, and a person in the loop where it matters.<span class="lead-more"> Every number on this page comes with how it was measured and what it can't tell you. Select a highlighted number to see both.</span></p>
   </div>
   <aside class="readout" aria-label="Headline numbers and how each was measured">
-    <div class="ro-head"><span class="k">Readout</span><span class="ro-right"><span class="code" id="ro-code">Case 01</span><button type="button" class="ro-pause" id="ro-pause" aria-pressed="false">Pause</button></span></div>
+    <div class="ro-head"><span class="k">Readout</span><span class="ro-right"><span class="code" id="ro-code">Case 01</span><button type="button" class="ro-pause" id="ro-pause" aria-label="Pause rotation">Pause</button></span></div>
     <div class="ro-body" id="ro-body">
       <div class="ro-val" id="ro-val">+4%</div>
       <div class="ro-label" id="ro-label">Checkout conversion · JD Sports Group</div>
@@ -729,7 +737,7 @@ footer b { color: var(--fg); }
   ];
   var ro = document.querySelector(".readout"), body = document.getElementById("ro-body"), dots = document.getElementById("ro-dots");
   var f = { code: "ro-code", val: "ro-val", label: "ro-label", method: "ro-method", limits: "ro-limits" };
-  var cur = 0, timer = null, dur = 5000;
+  var cur = 0, timer = null, dur = 9000;
   items.forEach(function (it, k) {
     var b = document.createElement("button");
     b.type = "button"; b.className = "ro-dot";
@@ -751,8 +759,8 @@ footer b { color: var(--fg); }
   function start() { stop(); if (!motion || ro.classList.contains("paused")) return; timer = setInterval(function () { show((cur + 1) % items.length); }, dur); }
   dotEls[0].setAttribute("aria-current", "true");
   var pb = document.getElementById("ro-pause");
-  function pause() { ro.classList.add("paused"); stop(); pb.textContent = "Play"; pb.setAttribute("aria-pressed", "true"); }
-  function play() { ro.classList.remove("paused", "hold"); pb.textContent = "Pause"; pb.setAttribute("aria-pressed", "false"); show((cur + 1) % items.length); start(); }
+  function pause() { ro.classList.add("paused"); stop(); pb.textContent = "Play"; pb.setAttribute("aria-label", "Play rotation"); }
+  function play() { ro.classList.remove("paused", "hold"); pb.textContent = "Pause"; pb.setAttribute("aria-label", "Pause rotation"); show((cur + 1) % items.length); start(); }
   if (!motion) pb.hidden = true;
   pb.addEventListener("click", function () { ro.classList.contains("paused") ? play() : pause(); });
   ro.addEventListener("mouseenter", function () { stop(); ro.classList.add("hold"); });
