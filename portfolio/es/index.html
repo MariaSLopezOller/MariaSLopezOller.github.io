@@ -133,6 +133,10 @@ h1 { margin: 0; font: 800 clamp(1.85rem, 4.4vw, 3.2rem)/1.08 var(--display); let
 @media (min-width: 64rem) { .tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .tile { position: relative; display: flex; flex-direction: column; gap: .25rem; padding: 1.1rem 1.15rem 1.25rem; background: var(--bg); color: var(--fg); text-decoration: none; transition: background .2s; min-width: 0; }
 .tile::after { content: ""; position: absolute; left: 0; top: 0; width: 100%; height: 2px; background: var(--mark-line); transform: scaleX(0); transform-origin: left center; transition: transform .3s ease; }
+.focus-note { margin: 2.25rem 0 -1.25rem; padding: .8rem 1rem; border-left: 2px solid var(--mark-line); background: var(--panel); font-size: .95rem; }
+.focus-note .k { font: 500 .75rem/1 var(--mono); color: var(--signal-text); text-transform: uppercase; letter-spacing: .06em; margin-right: .5rem; }
+.tile.pick { background: var(--panel-hi); }
+.tile.pick::after { transform: scaleX(1); }
 .tile:hover, .tile:focus-visible { background: var(--panel); color: var(--fg); }
 .tile:hover::after, .tile:focus-visible::after { transform: scaleX(1); }
 .t-val { margin-top: .35rem; font: 800 clamp(1.8rem, 3.6vw, 2.35rem)/1.05 var(--display); letter-spacing: -.04em; color: var(--signal-text); }
@@ -376,6 +380,7 @@ footer b { color: var(--fg); }
   <div><dt class="k">Contacto</dt><dd><span class="nw"><a href="#" data-mail="latigid.zepol.airam">Email</a> <button type="button" class="copy-mail" data-mail="latigid.zepol.airam">Copiar email</button></span> · <span class="nw"><a href="https://mariaslopezoller.github.io">CV</a> · <a href="https://www.linkedin.com/in/mariaslopezoller">LinkedIn</a> · <a href="https://github.com/MariaSLopezOller">GitHub</a></span></dd></div>
 </dl>
 
+<p class="focus-note" id="focus-note" hidden aria-live="polite"></p>
 <nav class="tiles" id="cases" aria-label="Casos">
   <a class="tile" href="#c1"><span class="code">Caso 01</span><span class="t-val">60</span><span class="t-lab">marcas y más de 100 webs</span><span class="t-title">Unas mismas reglas para 60 marcas</span><span class="t-tags">gobierno del dato · tag manager · consentimiento (RGPD, CCPA)</span></a>
   <a class="tile" href="#c2"><span class="code">Caso 02</span><span class="t-val">¾</span><span class="t-lab">menos esfuerzo de reporting, en equipo</span><span class="t-title">Especificaciones con las que desarrollo podía construir</span><span class="t-tags">especificaciones de analítica · calidad del dato · RGPD</span></a>
@@ -914,6 +919,27 @@ document.querySelectorAll("button.copy-mail").forEach(function (b) {
   if (!("IntersectionObserver" in window)) { fl.classList.add("play"); return; }
   var o = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { fl.classList.add("play"); o.disconnect(); } }, { threshold: 0.6 });
   o.observe(fl);
+})();
+</script>
+<script>
+(function () {
+  var focus = { cro: ['4','8','1'], product: ['3','4','8','9'], marketing: ['6','7','4','1'] };
+  var T = {"k": "Empieza aquí", "cro": "Para puestos de CRO", "product": "Para puestos de product analytics", "marketing": "Para puestos de analítica de marketing", "pre": "empieza por los casos", "and": "y", "all": "Los nueve casos están abajo."};
+  function apply() {
+    var key = location.hash.slice(1).toLowerCase(), ids = focus[key], note = document.getElementById('focus-note');
+    document.querySelectorAll('.tile.pick').forEach(function (a) { a.classList.remove('pick'); });
+    if (!ids) { note.hidden = true; return; }
+    var links = ids.map(function (n) {
+      var tile = document.querySelector('.tile[href="#c' + n + '"]'); if (tile) tile.classList.add('pick');
+      return '<a href="#c' + n + '">0' + n + '</a>';
+    });
+    var list = links.slice(0, -1).join(', ') + ' ' + T.and + ' ' + links[links.length - 1];
+    note.innerHTML = '<span class="k">' + T.k + '</span>' + T[key] + ', ' + T.pre + ' ' + list + '. ' + T.all;
+    note.hidden = false;
+    note.scrollIntoView({ block: 'start' });
+  }
+  window.addEventListener('hashchange', apply);
+  apply();
 })();
 </script>
 </body>
