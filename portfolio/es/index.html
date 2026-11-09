@@ -1,0 +1,920 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>María S. López Oller · Analítica sénior, productos de datos y gobierno del dato y de la IA</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Productos de datos, analítica y gobierno del dato de María S. López Oller. Cada cifra viene con cómo se midió.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="María S. López Oller, productos de datos, analítica y gobierno del dato">
+<meta property="og:url" content="https://mariaslopezoller.github.io/portfolio/es/">
+<meta property="og:locale" content="es_ES">
+<meta property="og:image" content="https://mariaslopezoller.github.io/portfolio/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="María S. López Oller · analítica sénior, productos de datos y gobierno del dato y de la IA">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://mariaslopezoller.github.io/portfolio/es/">
+<link rel="alternate" hreflang="en" href="https://mariaslopezoller.github.io/portfolio/">
+<link rel="alternate" hreflang="es" href="https://mariaslopezoller.github.io/portfolio/es/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1517'/%3E%3Cpath d='M14 46V18h7l11 15 11-15h7v28h-7V30L32 44 21 30v16z' fill='%237fe3c8'/%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"María S. López Oller","url":"https://mariaslopezoller.github.io/portfolio/es/","jobTitle":"Senior analytics, data products, data and AI governance","sameAs":["https://www.linkedin.com/in/mariaslopezoller","https://mariaslopezoller.github.io","https://github.com/MariaSLopezOller","https://rebolicando.blogspot.com"]}</script>
+<meta property="og:description" content="Del dato fiable a la IA útil. Casos en los que cada cifra viene con cómo se midió.">
+<script>
+// Motion only for people who haven't asked their system to reduce it.
+try { if (window.matchMedia("(prefers-reduced-motion: no-preference)").matches) document.documentElement.classList.add("anim"); } catch (e) {}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Sans:ital,wght@0,400..700;1,400&family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet">
+<style>
+/* Layout: a measurement spec sheet on chart paper, in the same palette and type as the CV. Panels carry the content; mint marks every measured value. */
+:root {
+  --bg: #0b1517;
+  --panel: #112023;
+  --panel-hi: #163a37;
+  --line: #213436;
+  --grid: rgba(143,179,173,.07);
+  --fg: #e2eeec;
+  --muted: #93a9a6;
+  --signal: #7fe3c8;
+  --signal-ink: #0d3238;
+  --signal-text: #7fe3c8;
+  --link: #5fd3bf;
+  --mark-line: #7fe3c8;
+  --mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --sans: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #f3f6f5; --panel: #ffffff; --panel-hi: #ebf6f3; --line: #d6e1df; --grid: #e6eeec;
+    --fg: #122a2e; --muted: #5a6e71; --signal: #7fe3c8; --signal-ink: #0d3238; --signal-text: #0d7c74; --link: #0d7c74; --mark-line: #2f9c8c;
+    color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --bg: #f3f6f5; --panel: #ffffff; --panel-hi: #ebf6f3; --line: #d6e1df; --grid: #e6eeec;
+  --fg: #122a2e; --muted: #5a6e71; --signal: #7fe3c8; --signal-ink: #0d3238; --signal-text: #0d7c74; --link: #0d7c74; --mark-line: #2f9c8c;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background-color: var(--bg);
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 28px 28px;
+  color: var(--fg);
+  font: 400 1rem/1.6 var(--sans);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 3rem;
+}
+a { color: var(--link); text-underline-offset: .2em; }
+a:hover { color: var(--fg); }
+:focus-visible { outline: 2px solid var(--signal-text); outline-offset: 3px; }
+.wrap { max-width: 76rem; margin-inline: auto; }
+.code { font: 500 .75rem/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--signal-text); }
+.k { font: 500 .75rem/1.4 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+
+/* Top bar */
+.bar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .4rem 1.5rem; padding-block: .9rem; border-bottom: 1px solid var(--line); font: 500 .76rem/1.5 var(--mono); letter-spacing: .04em; text-transform: uppercase; }
+.bar span { color: var(--muted); }
+.bar b { color: var(--fg); font-weight: 700; }
+.bar nav { display: flex; flex-wrap: wrap; gap: .2rem 1.1rem; }
+.bar nav a { color: var(--muted); text-decoration: none; }
+.bar nav a:hover { color: var(--signal-text); }
+.lang { display: inline-flex; align-items: center; gap: 2px; padding: 2px; border: 1px solid var(--signal-text); border-radius: 999px; }
+.bar .lang a, .bar .lang span { display: inline-flex; align-items: center; min-height: 0; padding: .2rem .65rem; border-radius: 999px; font-weight: 700; letter-spacing: .06em; }
+.bar .lang a { color: var(--fg); }
+.bar .lang a:hover { color: var(--signal-ink); background: var(--panel-hi); }
+.bar .lang [aria-current] { background: var(--signal); color: var(--signal-ink); }
+@media (pointer: coarse) { .bar .lang a { min-height: 36px; padding-inline: .9rem; } }
+
+/* Hero */
+.hero { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem; padding-block: clamp(2.25rem, 6vw, 4.5rem) 2rem; align-items: end; }
+@media (min-width: 60rem) { .hero { grid-template-columns: minmax(0, 1fr) 24rem; gap: 4rem; } }
+.hero .code { margin: 0 0 1.1rem; }
+/* Who first: name and role carry the first five seconds, set like the CV; the question follows as the thesis. */
+.who { margin: 0 0 1.6rem; }
+.who h1 { font: 800 clamp(2.5rem, 7vw, 4.6rem)/.95 var(--display); letter-spacing: -.045em; max-width: none; }
+.who h1 span { display: block; color: var(--signal-text); }
+.role { margin: .85rem 0 0; font: 500 clamp(1rem, 1.6vw, 1.15rem)/1.45 var(--sans); color: var(--muted); }
+.role b { color: var(--fg); font-weight: 600; }
+.q { margin: 0; font: 700 clamp(1.35rem, 2.9vw, 2.1rem)/1.15 var(--display); letter-spacing: -.03em; text-wrap: balance; max-width: 22em; }
+h1 { margin: 0; font: 800 clamp(1.85rem, 4.4vw, 3.2rem)/1.08 var(--display); letter-spacing: -.04em; text-wrap: balance; max-width: 17em; }
+.lead { margin: 1.25rem 0 0; max-width: 54ch; color: var(--muted); font-size: 1.1rem; }
+
+/* Legend: the page's idea in one panel. A number, then how it was measured and what it can't tell you. */
+.readout { min-width: 0; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1rem 1.1rem 1.05rem; }
+.ro-head { display: flex; justify-content: space-between; align-items: center; padding-bottom: .7rem; border-bottom: 1px dashed var(--line); }
+.ro-head .k::before { content: ""; display: inline-block; width: .45rem; height: .45rem; margin-right: .5rem; border-radius: 50%; background: var(--mark-line); vertical-align: .05em; }
+.ro-val { margin-top: .9rem; font: 800 clamp(2.6rem, 7vw, 3.5rem)/1 var(--display); letter-spacing: -.045em; color: var(--signal-text); }
+.ro-label { margin-top: .45rem; font-weight: 600; font-size: .92rem; line-height: 1.4; }
+.ro-meta { display: grid; grid-template-columns: 4.4rem minmax(0, 1fr); gap: .4rem .7rem; margin: .95rem 0 0; font-size: .86rem; line-height: 1.45; }
+.ro-meta dt { padding-top: .15rem; }
+.ro-meta dd { margin: 0; }
+.ro-note { margin: .95rem 0 0; padding-top: .7rem; border-top: 1px dashed var(--line); color: var(--muted); font-size: .84rem; line-height: 1.45; }
+
+/* At a glance: hairline grid of key facts */
+.spec { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1px; margin: 0; background: var(--line); border: 1px solid var(--line); }
+@media (min-width: 46rem) { .spec { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 72rem) { .spec { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.spec div { background: var(--panel); padding: .85rem 1rem .95rem; min-width: 0; }
+.spec dd { margin: .3rem 0 0; font-size: .95rem; line-height: 1.45; overflow-wrap: anywhere; }
+
+/* Case tiles */
+.tiles { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1px; margin-top: 2.25rem; background: var(--line); border: 1px solid var(--line); }
+@media (min-width: 40rem) { .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 64rem) { .tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.tile { position: relative; display: flex; flex-direction: column; gap: .25rem; padding: 1.1rem 1.15rem 1.25rem; background: var(--bg); color: var(--fg); text-decoration: none; transition: background .2s; min-width: 0; }
+.tile::after { content: ""; position: absolute; left: 0; top: 0; width: 100%; height: 2px; background: var(--mark-line); transform: scaleX(0); transform-origin: left center; transition: transform .3s ease; }
+.tile:hover, .tile:focus-visible { background: var(--panel); color: var(--fg); }
+.tile:hover::after, .tile:focus-visible::after { transform: scaleX(1); }
+.t-val { margin-top: .35rem; font: 800 clamp(1.8rem, 3.6vw, 2.35rem)/1.05 var(--display); letter-spacing: -.04em; color: var(--signal-text); }
+.t-lab { color: var(--muted); font-size: .88rem; line-height: 1.4; }
+.t-title { margin-top: .75rem; font-weight: 600; font-size: 1.04rem; line-height: 1.35; }
+.t-title::after { content: " \2192"; content: " \2192" / ""; color: var(--muted); }
+.t-tags { font: 400 .75rem/1.5 var(--mono); color: var(--muted); }
+@media (min-width: 40rem) and (max-width: 63.99rem) { .tile:last-child:nth-child(2n+1) { grid-column: 1 / -1; } }
+@media (min-width: 64rem) { .tile:last-child:nth-child(3n+1) { grid-column: 1 / -1; } .tile:last-child:nth-child(3n+2) { grid-column: span 2; } }
+
+/* AI: three cards, then the design as a flow a recommendation passes through. */
+.ai-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+@media (min-width: 60rem) { .ai-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.ai-card { display: flex; flex-direction: column; gap: .5rem; padding: 1.1rem 1.15rem 1.2rem; background: var(--panel); min-width: 0; }
+.ai-card h3 { margin: 0; font: 800 1.2rem/1.3 var(--display); letter-spacing: -.03em; }
+.ai-card p { margin: 0; font-size: .94rem; }
+.ai-card .chips { margin-top: auto; padding-top: .5rem; }
+.flow { margin-top: 1.25rem; padding: .9rem 1.1rem 1.1rem; background: var(--bg); border: 1px solid var(--line); border-radius: 14px; }
+.flow ol { list-style: none; margin: .8rem 0 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+@media (min-width: 48rem) { .flow ol { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1.4rem; } }
+.flow li { position: relative; padding: .65rem .7rem; border: 1px solid var(--line); border-radius: 10px; background: var(--panel); font: 500 .76rem/1.35 var(--mono); text-align: center; }
+.flow li.human { border-style: dashed; border-color: var(--signal-text); }
+.agentic { margin-top: 2.25rem; }
+.agentic h3 { margin: 0; font: 800 1.2rem/1.3 var(--display); letter-spacing: -.03em; }
+.agentic-lead { margin: .4rem 0 1rem; max-width: 56ch; color: var(--muted); }
+.flow li:not(:last-child)::after { content: "\2193"; content: "\2193" / ""; position: absolute; left: 50%; bottom: -1rem; transform: translateX(-50%); color: var(--muted); font-size: .8rem; line-height: 1rem; }
+@media (min-width: 48rem) { .flow li:not(:last-child)::after { content: "\2192"; content: "\2192" / ""; left: auto; right: -1.15rem; bottom: auto; top: 50%; transform: translateY(-50%); } }
+.anim .flow.play li { animation: flow-step 6s ease-in-out 1; animation-delay: calc(var(--i) * 1s); animation-fill-mode: none; }
+@keyframes flow-step { 0%, 14% { background: var(--panel-hi); border-color: var(--signal-text); color: var(--signal-text); } 22%, 100% { } }
+
+.copy-mail { font: 500 .75rem/1 var(--mono); letter-spacing: .04em; color: var(--fg); background: none; border: 1px solid var(--line); border-radius: 999px; padding: .4rem .6rem; min-height: 24px; margin-left: .35rem; cursor: pointer; vertical-align: .05em; }
+.copy-mail:hover { border-color: var(--signal-text); }
+.nw { white-space: nowrap; }
+.skip { position: absolute; left: 16px; top: -4rem; z-index: 20; padding: .7rem 1rem; background: var(--signal); color: var(--signal-ink); font: 600 .9rem/1 var(--sans); border-radius: 8px; text-decoration: none; }
+.skip:focus { top: .5rem; color: var(--signal-ink); }
+main:focus { outline: none; }
+/* Index: one line that scrolls sideways on a phone, stuck to the top of the screen. */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.toc { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; display: flex; align-items: center; gap: .3rem 1.1rem; overflow-x: auto; white-space: nowrap; scrollbar-width: none; padding-block: .7rem; background: var(--bg); border-bottom: 1px solid var(--line); font: 500 .75rem/1.4 var(--mono); }
+.toc::-webkit-scrollbar { display: none; }
+.toc .k { color: var(--signal-text); }
+.toc a { color: var(--muted); text-decoration: none; }
+.toc a:hover, .toc a:focus-visible { color: var(--fg); }
+.res { display: flex; flex-wrap: wrap; align-items: center; gap: .45rem .6rem; margin: 1.1rem 0 0; }
+.res a, .res .soon { font: 500 .76rem/1.35 var(--mono); padding: .45rem .7rem; border: 1px solid var(--line); border-radius: 999px; text-decoration: none; }
+.res a { color: var(--fg); border-color: var(--signal-text); }
+.res .soon { color: var(--muted); border-style: dashed; }
+.res a::after { content: " \2197"; content: " \2197" / ""; color: var(--signal-text); }
+.res a:hover, .res a:focus-visible { background: var(--panel-hi); color: var(--fg); }
+
+/* Section heads */
+.sec { margin-top: clamp(3.5rem, 8vw, 5.5rem); }
+.sec-head { display: grid; gap: .45rem; margin-bottom: 1.5rem; padding-top: .9rem; border-top: 1px solid var(--fg); }
+h2 { margin: 0; font: 800 clamp(1.5rem, 3.4vw, 2.25rem)/1.12 var(--display); letter-spacing: -.035em; text-wrap: balance; }
+.sec-head p { margin: 0; color: var(--muted); max-width: 56ch; }
+.where { font: 400 .76rem/1.5 var(--mono); color: var(--muted); }
+
+/* Changelog: me, version by version. A sticky build panel lights up each layer as it arrives. */
+.evo { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
+@media (min-width: 60rem) { .evo { grid-template-columns: 19rem minmax(0, 1fr); gap: 3.5rem; align-items: start; } }
+.build { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 2.8rem); z-index: 2; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: .85rem 1rem; }
+@media (min-width: 60rem) { .build { top: calc(env(safe-area-inset-top, 0px) + 4rem); padding: 1rem 1.1rem 1.1rem; } }
+.b-ver { display: flex; align-items: baseline; justify-content: space-between; gap: .75rem; }
+.b-year { font: 800 clamp(1.6rem, 4vw, 2.3rem)/1 var(--display); letter-spacing: -.04em; color: var(--signal-text); }
+.b-role { margin: .35rem 0 0; font-weight: 600; font-size: .9rem; line-height: 1.35; min-height: 2.45em; }
+.layers { list-style: none; margin: .8rem 0 0; padding: .8rem 0 0; border-top: 1px dashed var(--line); display: flex; flex-wrap: wrap; gap: .35rem; }
+.layers li { display: flex; align-items: center; gap: .4rem; padding: .3rem .5rem; border: 1px solid var(--line); border-radius: 999px; font: 500 .75rem/1.35 var(--mono); color: var(--muted); transition: color .35s, border-color .35s, background .35s; }
+.layers li::before { content: ""; width: .45rem; height: .45rem; border-radius: 50%; border: 1px solid var(--muted); transition: background .35s, border-color .35s, transform .35s; flex: none; }
+.layers li span { display: none; }
+.layers li.lit { color: var(--fg); border-color: var(--signal-text); }
+.layers li.lit::before { background: var(--mark-line); border-color: var(--mark-line); }
+.layers li.new { background: var(--panel-hi); }
+.anim .layers li.new::before { animation: pop .6s ease; }
+@keyframes pop { 40% { transform: scale(1.9); } }
+@media (min-width: 60rem) {
+  .layers { display: grid; gap: 0; }
+  .layers li { justify-content: flex-start; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; padding: .5rem .2rem; font-size: .75rem; }
+  .layers li:last-child { border-bottom: 0; }
+  .layers li span { display: inline; margin-left: auto; color: var(--muted); }
+  .layers li.lit { border-color: var(--line); }
+}
+.b-count { margin: .7rem 0 0; }
+
+/* Phones and small tablets: the build panel shrinks to one sticky line (year, role, layer count) so the log stays readable. */
+@media (max-width: 59.99rem) {
+  .build { top: env(safe-area-inset-top, 0px); z-index: 6; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: .75rem; padding: .55rem .85rem; border-radius: 12px; box-shadow: 0 8px 18px -12px rgba(0,0,0,.6); }
+  .b-ver { display: contents; }
+  .b-ver .k { display: none; }
+  .b-year { font-size: 1.35rem; }
+  .b-role { margin: 0; min-height: 0; font-size: .84rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .layers { display: none; }
+  .b-count { margin: 0; white-space: nowrap; }
+}
+@media (max-width: 39.99rem) {
+  .lead { font-size: 1rem; }
+  .spec { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .spec div { padding: .7rem .75rem .8rem; }
+  .spec dd { font-size: .88rem; }
+  .tile { padding: .8rem .9rem .9rem; }
+  .t-tags { display: none; }
+  .t-title { margin-top: .4rem; }
+  .bar-meta { display: none; }
+  .bar { gap: .35rem 1rem; }
+  .bar nav { gap: .2rem .75rem; letter-spacing: 0; }
+}
+/* The index scrolls sideways on narrow screens: fade its right edge so that reads as "more". */
+@media (max-width: 71.99rem) {
+  .toc { padding-inline-end: 2.5rem; -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 3rem), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 3rem), transparent); }
+}
+/* Touch: 44px targets for the readout dots and index links. */
+@media (pointer: coarse) {
+  .toc { padding-block: .1rem; }
+  .toc a, .toc .k { display: inline-block; padding-block: .62rem; }
+  .bar nav a { display: inline-flex; align-items: center; min-height: 44px; }
+}
+
+.log { list-style: none; margin: 0; padding: 0 0 0 1.4rem; position: relative; }
+.log::before { content: ""; position: absolute; left: .3rem; top: .5rem; bottom: .5rem; width: 1px; background: var(--line); }
+.log::after { content: ""; position: absolute; left: .3rem; top: .5rem; width: 1px; height: var(--progress, 100%); background: var(--mark-line); transition: height .4s ease; }
+.log > li { position: relative; padding: .2rem 0 2rem; opacity: 1; transition: opacity .35s; }
+.log > li:last-child { padding-bottom: 0; }
+.log > li::before { content: ""; position: absolute; left: -1.38rem; top: .45rem; width: .65rem; height: .65rem; border-radius: 50%; background: var(--bg); border: 2px solid var(--line); z-index: 1; transition: border-color .3s, background .3s; }
+.log > li.done::before, .log > li.on::before { border-color: var(--mark-line); }
+.log > li.on::before { background: var(--mark-line); }
+.anim .evo.js .log > li:not(.on):not(.done) { opacity: .8; }
+.log h3 { margin: .25rem 0 .2rem; font-weight: 600; font-size: 1.08rem; line-height: 1.35; }
+.log p { margin: 0; max-width: 56ch; font-size: .95rem; }
+.adds { display: flex; flex-wrap: wrap; gap: .35rem; margin: .6rem 0 0; padding: 0; list-style: none; }
+.adds li { font: 500 .75rem/1 var(--mono); padding: .38rem .55rem; border-radius: 999px; background: var(--signal); color: var(--signal-ink); }
+.adds li.more { background: none; color: var(--muted); border: 1px solid var(--line); }
+.log .next h3 { color: var(--muted); }
+.log .next::before { border-style: dashed; }
+.out { margin-top: 2rem; padding: 1rem 1.1rem; background: var(--panel); border: 1px solid var(--line); border-left: 3px solid var(--signal); font-weight: 600; font-size: clamp(1.02rem, 2.2vw, 1.22rem); line-height: 1.4; }
+.out .code { display: block; margin-bottom: .3rem; }
+.out p { margin: 0; }
+.out .out-bridge { margin-bottom: .7rem; font-weight: 400; font-size: .95rem; line-height: 1.55; color: var(--muted); max-width: 56ch; }
+mark, .n { color: var(--signal-ink); border-radius: 6px; background: linear-gradient(var(--signal), var(--signal)) no-repeat left center / 100% 100%; }
+mark { padding: 0 .15em; }
+
+/* Cases */
+.case-body { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.75rem; }
+@media (min-width: 60rem) { .case-body { grid-template-columns: minmax(0, 1fr) minmax(0, 25rem); gap: 3.5rem; } }
+.story p { margin: 0 0 .9rem; max-width: 56ch; }
+.story .go { font: 500 .78rem/1.5 var(--mono); }
+.chips { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; margin: 1.1rem 0 0; padding: 0; list-style: none; }
+.chips li { font: 400 .75rem/1 var(--mono); padding: .42rem .55rem; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); background: var(--bg); }
+.chips li.k { border: 0; background: none; padding-left: 0; }
+.mpanel { align-self: start; min-width: 0; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+.mpanel > .k { display: block; padding: .7rem 1rem; border-bottom: 1px dashed var(--line); }
+.metrics { list-style: none; margin: 0; padding: 0; }
+.metrics li { padding: .85rem 1rem .95rem; border-top: 1px solid var(--line); transition: background .25s, box-shadow .25s; scroll-margin: 5rem; }
+.metrics li:first-child { border-top: 0; }
+.metrics li.on { background: var(--panel-hi); box-shadow: inset 3px 0 0 var(--mark-line); }
+.m-top { display: flex; flex-wrap: wrap; align-items: baseline; gap: .2rem .6rem; }
+.m-val { font: 800 1.15rem/1.3 var(--display); color: var(--signal-text); }
+.m-lab { font-weight: 600; font-size: .88rem; }
+.metrics p { margin: .35rem 0 0; font-size: .88rem; line-height: 1.5; }
+.metrics p.lim { color: var(--muted); }
+
+.n { font: inherit; font-weight: 600; padding: 0 .22em; margin: 0 -.03em; border: 0; cursor: pointer; }
+.n sup { font: 600 .75rem/0 var(--mono); margin-left: .25em; }
+.n:hover, .n[aria-expanded="true"] { box-shadow: 0 0 0 2px var(--fg); }
+.anim .n { transition: box-shadow .15s; }
+/* On narrow screens the method opens right under the paragraph instead of scrolling away. */
+.inline-m { margin: -.35rem 0 .95rem; padding: .7rem .85rem .8rem; max-width: 56ch; background: var(--panel-hi); border: 1px solid var(--line); border-radius: 10px; box-shadow: inset 3px 0 0 var(--mark-line); }
+.inline-m p { margin: .35rem 0 0; font-size: .88rem; line-height: 1.5; }
+.inline-m p.lim { color: var(--muted); }
+
+/* Rows: lead, unmeasured cases, built and written, training */
+.rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.rows li { display: grid; grid-template-columns: minmax(0, 1fr); gap: .15rem 1.5rem; padding: .9rem 0; border-bottom: 1px solid var(--line); }
+@media (min-width: 52rem) { .rows li { grid-template-columns: 8rem minmax(0, 17rem) minmax(0, 1fr); align-items: baseline; } }
+.rows .r-name { font-weight: 600; }
+.rows .r-text { color: var(--muted); font-size: .93rem; }
+.toolset { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.25rem 2rem; margin-bottom: 2rem; }
+@media (min-width: 46rem) { .toolset { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.toolset h3 { margin: 0 0 .5rem; }
+.toolset .chips { margin: 0; }
+
+footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 2rem; margin-top: clamp(4rem, 9vw, 6rem); padding-top: 1rem; border-top: 1px solid var(--fg); font: 500 .76rem/1.6 var(--mono); color: var(--muted); }
+footer b { color: var(--fg); }
+
+[id] { scroll-margin-top: 3.75rem; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+@media print {
+  body { background: #fff; color: #000; }
+  .build { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<header class="bar">
+  <span><b>María S. López Oller</b><span class="bar-meta"> · especificación de medición · v2026.11</span></span>
+  <nav aria-label="Contacto y perfiles">
+    <a href="#" data-mail="latigid.zepol.airam">Email</a>
+    <a href="https://www.linkedin.com/in/mariaslopezoller">LinkedIn</a>
+    <a href="https://mariaslopezoller.github.io">CV</a>
+    <a href="https://mariaslopezoller.github.io">GitHub</a>
+    <span class="lang" role="group" aria-label="Idioma"><a href="../" hreflang="en" lang="en">EN</a><span aria-current="true">ES</span></span>
+  </nav>
+</header>
+
+<nav class="toc" aria-label="En esta página">
+  <span class="k">Índice</span>
+  <a href="#cases">Casos</a>
+  <a href="#ai-title">IA</a>
+  <a href="#evo-title">Trayectoria</a>
+  <a href="#lead">Liderazgo</a>
+  <a href="#built">Proyectos y textos</a>
+</nav>
+
+<main id="main" tabindex="-1">
+<section class="hero" aria-labelledby="top">
+  <div>
+    <div class="who">
+      <h1 id="top">María S. <span>López Oller</span></h1>
+      <p class="role"><b>Analítica sénior</b> · <b>productos de datos</b> · <b>gobierno del dato y de la IA</b></p>
+    </div>
+    <p class="q">¿Te fías de estos datos lo bastante para decidir con ellos, o para dejar que un agente de IA actúe sobre ellos?</p>
+    <p class="lead">Llevo más de 10 años en analítica haciendo que las cifras sean fiables. Ahora construyo productos de datos sobre ellas: agentes de IA y funciones con LLM, con una persona en el circuito donde hace falta. Cada cifra de esta página viene con cómo se midió y lo que no puede decirte. Pulsa una cifra resaltada para ver las dos cosas.</p>
+  </div>
+  <aside class="readout" aria-labelledby="legend-title">
+    <div class="ro-head"><span class="k" id="legend-title">Cómo leer una cifra aquí</span><span class="code">Caso 04 · M7</span></div>
+    <div class="ro-val">+4 %</div>
+    <div class="ro-label">Conversión del checkout · JD Sports Group</div>
+    <dl class="ro-meta">
+      <dt class="k">Método</dt><dd>Subida relativa, antes y después, frente a la línea base previa al cambio</dd>
+      <dt class="k">Límites</dt><dd>No es un test A/B, así que no puede aislar la estacionalidad</dd>
+    </dl>
+    <p class="ro-note">Cada cifra resaltada en los casos abre estas mismas dos notas.</p>
+  </aside>
+</section>
+
+<dl class="spec">
+  <div><dt class="k">Busco</dt><dd>Puestos sénior y lead en analítica, productos de datos y gobierno del dato y de la IA</dd></div>
+  <div><dt class="k">Experiencia</dt><dd>Más de 10 años en analítica en Reino Unido y España: retail, viajes, Gobierno británico, industria y tecnología sanitaria</dd></div>
+  <div><dt class="k">Dónde</dt><dd>Europa, en remoto. Pasaporte de la UE y UK Settled Status</dd></div>
+  <div><dt class="k">Contacto</dt><dd><span class="nw"><a href="#" data-mail="latigid.zepol.airam">Email</a> <button type="button" class="copy-mail" data-mail="latigid.zepol.airam">Copiar email</button></span> · <span class="nw"><a href="https://mariaslopezoller.github.io">CV</a> · <a href="https://www.linkedin.com/in/mariaslopezoller">LinkedIn</a></span></dd></div>
+</dl>
+
+<nav class="tiles" id="cases" aria-label="Casos">
+  <a class="tile" href="#c1"><span class="code">Caso 01</span><span class="t-val">60</span><span class="t-lab">marcas y más de 100 webs</span><span class="t-title">Unas mismas reglas para 60 marcas</span><span class="t-tags">gobierno del dato · tag manager · consentimiento (RGPD, CCPA)</span></a>
+  <a class="tile" href="#c2"><span class="code">Caso 02</span><span class="t-val">¾</span><span class="t-lab">menos esfuerzo de reporting, en equipo</span><span class="t-title">Especificaciones con las que desarrollo podía construir</span><span class="t-tags">especificaciones de analítica · calidad del dato · RGPD</span></a>
+  <a class="tile" href="#c3"><span class="code">Caso 03</span><span class="t-val">+70 %</span><span class="t-lab">peticiones nuevas de analítica, 90 % de satisfacción</span><span class="t-title">Las mismas cifras para todos</span><span class="t-tags">product ownership · definición de KPI · stakeholders</span></a>
+  <a class="tile" href="#c4"><span class="code">Caso 04</span><span class="t-val">+4 %</span><span class="t-lab">conversión del checkout</span><span class="t-title">Un checkout que parecía roto</span><span class="t-tags">análisis de embudo · voz del cliente · tres equipos de acuerdo</span></a>
+  <a class="tile" href="#c5"><span class="code">Caso 05</span><span class="t-val">1 de 12</span><span class="t-lab">proyectos en la fase final de INCOOVA, de 168</span><span class="t-title">Una persona en el circuito</span><span class="t-tags">producto de IA · human in the loop</span></a>
+  <a class="tile" href="#c6"><span class="code">Caso 06</span><span class="t-val">+112 %</span><span class="t-lab">leads con un 48 % menos de presupuesto</span><span class="t-title">Más leads con menos presupuesto</span><span class="t-tags">dirección de equipo · reparto del presupuesto · análisis por canal</span></a>
+  <a class="tile" href="#c7"><span class="code">Caso 07</span><span class="t-val">CLV</span><span class="t-lab">para cada socio de Goldcar Club</span><span class="t-title">Un valor para cada socio de Goldcar Club</span><span class="t-tags">customer lifetime value · RFM · fidelización</span></a>
+  <a class="tile" href="#c8"><span class="code">Caso 08</span><span class="t-val">~5</span><span class="t-lab">experimentos por trimestre, en equipo</span><span class="t-title">Qué va primero en la rejilla de productos</span><span class="t-tags">tests A/B · ordenación personalizada · afinidad de producto</span></a>
+  <a class="tile" href="#c9"><span class="code">Caso 09</span><span class="t-val">50</span><span class="t-lab">tests de datos sobre datos sintéticos de una clínica</span><span class="t-title">¿Son fiables las cifras de la clínica?</span><span class="t-tags">dbt · calidad del dato · catálogo y linaje</span></a>
+</nav>
+
+<article class="sec" aria-labelledby="c1">
+  <header class="sec-head">
+    <span class="code">Caso 01</span>
+    <h2 id="c1">Unas mismas reglas para 60 marcas</h2>
+    <span class="where">Ingersoll Rand · Web Data Analyst, Customer Data Analytics Center of Excellence · 2026</span>
+  </header>
+  <div class="case-body">
+    <div class="story">
+      <p>Cada marca recogía los datos web a su manera. Creé el marco de gobierno de Google Tag Manager para <button type="button" class="n" data-m="m1">60 marcas<sup>M1</sup></button> y más de 100 webs, en todas las regiones, China incluida.</p>
+      <p>Dirigí la migración de la plataforma de gestión del consentimiento, con la validación de Consent Mode bajo el RGPD y la CCPA, y preparé el business case de Google Analytics 360 midiendo lo que costaba la mala calidad del dato. También hice análisis en BigQuery para los equipos de marketing de las marcas y puse en marcha lo que pedían.</p>
+      <ul class="chips"><li class="k">Herramientas</li><li>Google Tag Manager</li><li>Consent Mode v2</li><li>Chrome DevTools</li><li>Google Tag Assistant</li><li>GA4</li><li>BigQuery</li></ul>
+    </div>
+    <div class="mpanel">
+      <span class="k">Métricas · cómo se midieron</span>
+      <ul class="metrics">
+        <li id="m1"><div class="m-top"><span class="code">M1</span><span class="m-val">60</span><span class="m-lab">marcas</span></div><p>60 marcas y más de 100 webs en 5 contenedores de Google Tag Manager.</p><p class="lim">Es el alcance del trabajo, no un resultado. No tengo una cifra de antes y después que enseñar.</p></li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<article class="sec" aria-labelledby="c2">
+  <header class="sec-head">
+    <span class="code">Caso 02</span>
+    <h2 id="c2">Especificaciones con las que desarrollo podía construir</h2>
+    <span class="where">UK Government Digital Service y Department for Education · Senior Performance Analyst · 2017–2020</span>
+  </header>
+  <div class="case-body">
+    <div class="story">
+      <p>La identidad digital es más difícil de medir que la mayoría de los servicios públicos: Reino Unido no tiene DNI, así que el servicio tiene que verificar quién es alguien sin él. Trabajé en varios equipos ágiles y multidisciplinares a la vez, y creé y validé métricas y KPI nuevos de cuya calidad del dato era responsable.</p>
+      <p>Para el trabajo de analítica de mi equipo, escribía las especificaciones con las que construía desarrollo: user stories y criterios de aceptación de UAT. Con el Head of Privacy, implanté el RGPD en toda la unidad, con el consentimiento y el tratamiento de datos sensibles. Nuestro equipo automatizó el reporting recurrente con Python y pipelines ETL y redujo el esfuerzo en <button type="button" class="n" data-m="m2">tres cuartas partes<sup>M2</sup></button>, con informes semanales a <button type="button" class="n" data-m="m3">más de 30 stakeholders<sup>M3</sup></button>, el 100 % a tiempo.</p>
+      <p>También me formé como evaluadora de servicios del GDS y participé en paneles de evaluación del Service Standard como performance analyst.</p>
+      <p class="res"><span class="k">Recursos</span><a href="https://rebolicando.blogspot.com/2026/06/writing-analytics-specs-that-developers.html" hreflang="en">Entrada del blog (en inglés) · especificaciones de analítica que desarrollo puede construir</a></p>
+      <ul class="chips"><li class="k">Herramientas</li><li>User stories</li><li>Criterios de UAT</li><li>Definición de KPI</li><li>RGPD</li><li>Python</li><li>ETL</li><li>Jira</li></ul>
+    </div>
+    <div class="mpanel">
+      <span class="k">Métricas · cómo se midieron</span>
+      <ul class="metrics">
+        <li id="m2"><div class="m-top"><span class="code">M2</span><span class="m-val">¾</span><span class="m-lab">menos esfuerzo de reporting</span></div><p>Esfuerzo dedicado a los informes recurrentes, antes y después de que nuestro equipo los automatizara con Python y pipelines ETL.</p><p class="lim">Resultado del equipo, no solo mío. El trabajo del RGPD no tiene cifra que enseñar.</p></li>
+        <li id="m3"><div class="m-top"><span class="code">M3</span><span class="m-val">30+</span><span class="m-lab">stakeholders, cada semana, el 100 % a tiempo</span></div><p>Informes semanales entregados a más de 30 stakeholders, ninguno con retraso.</p></li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<article class="sec" aria-labelledby="c3">
+  <header class="sec-head">
+    <span class="code">Caso 03</span>
+    <h2 id="c3">Las mismas cifras para todos</h2>
+    <span class="where">JD Sports Group · product owner de un programa de medición de 8 proyectos · 2021–2024</span>
+  </header>
+  <div class="case-body">
+    <div class="story">
+      <p>Marketing y ecommerce no se fiaban de las cifras del otro. Con la directora, partí de un plan de medición y acordé los objetivos con cada área antes de definir ningún KPI. Ordené el backlog por dependencias y por cuántos equipos desbloqueaba cada pieza, para que nadie construyera una métrica sin acordar. Cada entrega llevaba un dashboard funcionando y formación.</p>
+      <p>Las peticiones nuevas de analítica crecieron un <button type="button" class="n" data-m="m4">70 %<sup>M4</sup></button> interanual, con un <button type="button" class="n" data-m="m5">90 %<sup>M5</sup></button> de satisfacción de los stakeholders.</p>
+      <p class="res"><span class="k">Recursos</span><span class="soon">Presentación disponible si se pide</span></p>
+      <ul class="chips"><li class="k">Herramientas</li><li>Plan de medición</li><li>Definición de KPI</li><li>Looker</li><li>Looker Studio</li><li>Power BI</li><li>Jira</li></ul>
+    </div>
+    <div class="mpanel">
+      <span class="k">Métricas · cómo se midieron</span>
+      <ul class="metrics">
+        <li id="m4"><div class="m-top"><span class="code">M4</span><span class="m-val">+70 %</span><span class="m-lab">peticiones nuevas de analítica</span></div><p>Peticiones nuevas al equipo de analítica, interanual.</p><p class="lim">Cuenta la demanda de los equipos y no mide cuánto usaron cada dashboard.</p></li>
+        <li id="m5"><div class="m-top"><span class="code">M5</span><span class="m-val">90 %</span><span class="m-lab">de satisfacción de los stakeholders</span></div><p>De la encuesta a los stakeholders al pasar cada proyecto al día a día del negocio.</p></li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<article class="sec" aria-labelledby="c4">
+  <header class="sec-head">
+    <span class="code">Caso 04</span>
+    <h2 id="c4">Un checkout que parecía roto</h2>
+    <span class="where">JD Sports Group (Sprinter y Sportzone) · Senior Digital &amp; Marketing Data Analyst · 2021–2024</span>
+  </header>
+  <div class="case-body">
+    <div class="story">
+      <p>Negocio quería rediseñar el checkout. Antes de comprometer tiempo de ingeniería, comparé el embudo paso a paso con la referencia del sector retail y encontré una página por la que pasaba el <button type="button" class="n" data-m="m6">40 %<sup>M6</sup></button> del tráfico del checkout y que nunca se había medido. Eso lo arreglé primero.</p>
+      <p>Tres equipos querían tres soluciones distintas. Marketing quería a Atención al Cliente en videollamadas, Atención al Cliente quería un chat en las páginas de producto y los datos apuntaban al checkout. Enseñé a cada equipo, paso a paso, qué datos había en cada etapa y qué nos diría cada opción, y empezamos por el checkout.</p>
+      <p>Después fuimos a por los motivos, con una encuesta de Hotjar categorizada con la API de OpenAI y los motivos del chat que Atención al Cliente registraba en Salesforce. Los fallos de pago salieron como la causa principal. Tras los cambios, la conversión del checkout subió un <button type="button" class="n" data-m="m7">4 %<sup>M7</sup></button> frente a la línea base previa, y Atención al Cliente siguió usando el informe semanal en sus propias reuniones.</p>
+      <p class="res"><span class="k">Recursos</span><a href="https://rebolicando.blogspot.com/2026/02/a-hole-in-checkout-funnel-fix-tracking.html" hreflang="en">Entrada del blog (en inglés) · la historia completa</a></p>
+      <ul class="chips"><li class="k">Herramientas</li><li>GA4</li><li>Google Tag Manager</li><li>BigQuery</li><li>SQL</li><li>Python</li><li>Hotjar</li><li>Microsoft Clarity</li><li>OpenAI API</li><li>Salesforce</li></ul>
+    </div>
+    <div class="mpanel">
+      <span class="k">Métricas · cómo se midieron</span>
+      <ul class="metrics">
+        <li id="m6"><div class="m-top"><span class="code">M6</span><span class="m-val">40 %</span><span class="m-lab">del tráfico del checkout</span></div><p>Parte de las sesiones del checkout que pasaban por la página de iniciar sesión, invitado o registro, una vez que se pudo medir.</p></li>
+        <li id="m7"><div class="m-top"><span class="code">M7</span><span class="m-val">+4 %</span><span class="m-lab">conversión del checkout</span></div><p>Subida relativa, frente a la línea base previa al cambio.</p><p class="lim">Es una comparación de antes y después, no un test A/B, así que no puede aislar la estacionalidad.</p></li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<article class="sec" aria-labelledby="c5">
+  <header class="sec-head">
+    <span class="code">Caso 05</span>
+    <h2 id="c5">Una persona en el circuito</h2>
+    <span class="where">Nutr(IA) Coach · cofundadora y AI product manager · desde 2024, en beta</span>
+  </header>
+  <div class="case-body">
+    <div class="story">
+      <p>Los profesionales de la nutrición no tenían una herramienta de IA pensada para su trabajo con clientes. Llevé el producto de la idea a la beta. Coordino el equipo y decido qué construir a continuación a partir de entrevistas con más de diez de ellos.</p>
+      <p>Decidimos dar la IA solo a nutricionistas, para que un profesional revise cada recomendación antes de que llegue al cliente. El proyecto llegó a la fase final de la incubadora INCOOVA, <button type="button" class="n" data-m="m8">uno de 12<sup>M8</sup></button> proyectos.</p>
+      <p class="res"><span class="k">Recursos</span><a href="https://rebolicando.blogspot.com/2025/04/who-should-see-ais-advice-first-why-we.html" hreflang="en">Entrada del blog (en inglés) · por qué pusimos a nutricionistas en el circuito</a></p>
+      <ul class="chips"><li class="k">Herramientas</li><li>LLM APIs</li><li>Vertex AI</li><li>Google Cloud</li><li>BigQuery</li></ul>
+    </div>
+    <div class="mpanel">
+      <span class="k">Métricas · cómo se midieron</span>
+      <ul class="metrics">
+        <li id="m8"><div class="m-top"><span class="code">M8</span><span class="m-val">1 de 12</span><span class="m-lab">proyectos en la fase final</span></div><p>De 168 ideas. Doce proyectos llegaron a la fase final; uno se retiró, por eso <a href="https://www.murciadiario.com/actualidad-economica/actualidad/incoova/20251219161341137831.html">la noticia de prensa</a> habla de once.</p><p class="lim">El producto aún no tiene clientes de pago.</p></li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<article class="sec" aria-labelledby="c6">
+  <header class="sec-head">
+    <span class="code">Caso 06</span>
+    <h2 id="c6">Más leads con menos presupuesto</h2>
+    <span class="where">aBoatTime y BoatGrid · Head of Digital Marketing · 2015</span>
+  </header>
+  <div class="case-body">
+    <div class="story">
+      <p>El objetivo era duplicar los leads del año anterior mientras se recortaba el presupuesto. Dirigí un equipo de cuatro personas, tres de marketing y un diseñador, y llevé la relación de marketing con los partners de marca blanca. Acordé qué contaba como lead, leí los resultados canal a canal y moví el dinero a lo que daba retorno.</p>
+      <p>Los leads subieron un <button type="button" class="n" data-m="m9">112 %<sup>M9</sup></button> en seis meses con un presupuesto de marketing un <button type="button" class="n" data-m="m10">48 %<sup>M10</sup></button> menor, y el coste por lead pasó de <button type="button" class="n" data-m="m11">36,20 € a 9,38 €<sup>M11</sup></button>.</p>
+      <p class="res"><span class="k">Recursos</span><a href="../presentations/more-leads-on-less-budget-aboattime-2015.pdf" target="_blank" rel="noopener" hreflang="en">Presentación · PDF, 10 diapositivas (en inglés)</a></p>
+      <ul class="chips"><li class="k">Herramientas</li><li>Google Analytics</li><li>Google Ads</li><li>Facebook Ads</li><li>Google Display Network</li><li>Google Trends</li><li>CRM</li></ul>
+    </div>
+    <div class="mpanel">
+      <span class="k">Métricas · cómo se midieron</span>
+      <ul class="metrics">
+        <li id="m9"><div class="m-top"><span class="code">M9</span><span class="m-val">+112 %</span><span class="m-lab">leads</span></div><p>De mayo a octubre de 2015 frente a los mismos meses de 2014. Un lead era un formulario de solicitud de barco, una llamada de cliente o un chat online. Solo la web creció un 60 %; los partners de marca blanca pusieron el resto.</p></li>
+        <li id="m10"><div class="m-top"><span class="code">M10</span><span class="m-val">−48 %</span><span class="m-lab">presupuesto de marketing</span></div><p>Presupuesto de marketing, interanual. Los partners se llevaban una parte de las ventas sin coste fijo, así que sus leads no sumaban a este presupuesto.</p></li>
+        <li id="m11"><div class="m-top"><span class="code">M11</span><span class="m-val">9,38 €</span><span class="m-lab">coste por lead, desde 36,20 €</span></div><p class="lim">Mi papel era el marketing, así que no tenía datos de reservas ni de ingresos y no puedo enseñar la conversión de lead a reserva. La empresa ya no existe; las cifras salen de mi informe de 2015.</p></li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<article class="sec" aria-labelledby="c7">
+  <header class="sec-head">
+    <span class="code">Caso 07</span>
+    <h2 id="c7">Un valor para cada socio de Goldcar Club</h2>
+    <span class="where">Goldcar Rental (Grupo Europcar) · Digital Analyst · 2016</span>
+  </header>
+  <div class="case-body">
+    <div class="story">
+      <p>Goldcar Club, el programa de fidelización de la empresa de alquiler de coches, necesitaba saber qué socios valían más para el negocio. Con el Chief Digital Officer, definí el <button type="button" class="n" data-m="m12">customer lifetime value<sup>M12</sup></button> de sus socios.</p>
+      <p>Lo construí en Python y SQL a partir de la segmentación RFM: cuándo fue la última vez, con qué frecuencia y cuánto había gastado cada socio. Después lo usó marketing.</p>
+      <p>En el mismo puesto dirigí el plan de medición en 15 países.</p>
+      <ul class="chips"><li class="k">Herramientas</li><li>Python</li><li>SQL</li><li>RFM</li><li>Customer lifetime value</li></ul>
+    </div>
+    <div class="mpanel">
+      <span class="k">Métricas · cómo se midieron</span>
+      <ul class="metrics">
+        <li id="m12"><div class="m-top"><span class="code">M12</span><span class="m-val">CLV</span><span class="m-lab">por socio de Goldcar Club</span></div><p>Definido con el Chief Digital Officer, a partir de la segmentación RFM de los alquileres de cada socio.</p><p class="lim">Es una definición, no un resultado. No tengo cifra de lo que cambió en marketing.</p></li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<article class="sec" aria-labelledby="c8">
+  <header class="sec-head">
+    <span class="code">Caso 08</span>
+    <h2 id="c8">Qué va primero en la rejilla de productos</h2>
+    <span class="where">JD Sports Group (Sprinter) · Senior Digital &amp; Marketing Data Analyst · 2021–2024</span>
+  </header>
+  <div class="case-body">
+    <div class="story">
+      <p>El orden de una página de categoría decide qué productos ve primero el cliente. El equipo de performance pidió probar algoritmos de ordenación nuevos en la herramienta interna de merchandising de Sprinter: uno que reordenaba la rejilla según lo que el visitante había estado viendo y otro que subía productos afines a los que había mirado.</p>
+      <p>Fue un test A/B de verdad: los visitantes se repartieron al azar en grupos que veían cada ordenación al mismo tiempo, así que la comparación no la sesgaban la temporada ni las campañas, como pasa con un antes y después. El éxito era el ingreso por visitante, con los clics en la rejilla y los añadidos al carrito como señales tempranas.</p>
+      <p>Lo difícil fue la unidad del reparto. Repartir por usuario es lo correcto aquí: la ordenación personalizada aprende de lo que navega el visitante, así que un reparto por sesión puede enseñar a la misma persona las dos versiones en visitas distintas y difuminar la diferencia. Pero reconocer a un visitante que vuelve necesita una cookie, y en Sprinter esa cookie dependía del consentimiento, así que el equipo técnico no podía repartir por usuario y el test se hizo por sesión, frente a un grupo de control con la ordenación actual.</p>
+      <p>Cómo revisaría hoy un test así: tres brazos (la ordenación actual como control y los dos algoritmos) piden un test multivariante con corrección por comparaciones múltiples. Los clics y los añadidos al carrito son proporciones, así que encaja un test de dos proporciones. El ingreso por visitante lo sesgan unas pocas cestas grandes, así que necesita un test que aguante eso, como el t de Welch con una muestra grande o un bootstrap. Y con un reparto por sesión, la sesión también tiene que ser la unidad de análisis. Mi calculadora gratuita cubre la planificación, el montaje multivariante, varias métricas a la vez y el riesgo de elegir mal al ganador.</p>
+      <p class="res"><span class="k">Recursos</span><a href="https://conversion-insight-tool.lovable.app/" hreflang="en">Calculadora de tests A/B · hecha por mí (en inglés)</a></p>
+      <p>Los experimentos eran trabajo de equipo, <button type="button" class="n" data-m="m13">unos cinco por trimestre<sup>M13</sup></button>. Validaba cada test con el equipo técnico antes de lanzarlo y evaluaba los resultados.</p>
+    </div>
+    <div class="mpanel">
+      <span class="k">Métricas · cómo se midieron</span>
+      <ul class="metrics">
+        <li id="m13"><div class="m-top"><span class="code">M13</span><span class="m-val">~5</span><span class="m-lab">experimentos por trimestre</span></div><p>Tests A/B en el ecommerce de Sprinter, hechos por el equipo. En el test de la rejilla, el éxito era el ingreso por visitante, con los clics en la rejilla y los añadidos al carrito como señales tempranas.</p><p class="lim">Validé el montaje y evalué los resultados; no hice los tests sola. Repartir por sesión hace que algunos visitantes que volvían vieran las dos ordenaciones, y eso encoge la diferencia medida. Aquí no hay cifra de qué algoritmo ganó.</p></li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<article class="sec" aria-labelledby="c9">
+  <header class="sec-head">
+    <span class="code">Caso 09</span>
+    <h2 id="c9">¿Son fiables las cifras de la clínica?</h2>
+    <span class="where">Proyecto personal · dbt y DuckDB con datos sintéticos · 2026</span>
+  </header>
+  <div class="case-body">
+    <div class="story">
+      <p>Un proyecto de práctica sobre cómo organizaría una analítica de la que un equipo se pueda fiar. Catorce preguntas de negocio sobre una clínica ficticia, de los reingresos a 30 días a la adherencia a la medicación, cada una respondida por su propio modelo de dbt con datos sintéticos. No hay pacientes reales.</p>
+      <p>Los datos traen defectos puestos a propósito: formularios de ingreso duplicados, un médico sin departamento, estancias con el alta antes del ingreso y valores de laboratorio imposibles. Las filas malas se marcan, no se esconden, y cada modelo decide qué excluir. <button type="button" class="n" data-m="m14">50 tests<sup>M14</sup></button> y un cuadro de calidad del dato detectan los defectos: los conocidos avisan sin parar el build y los fallos de verdad lo paran.</p>
+      <p>También funciona como catálogo de datos. Cada modelo tiene responsable, clasificación del dato y sus columnas de datos personales etiquetadas, y el grafo de linaje va de los datos en bruto a los informes que los usan. Una comprobación en el pipeline para el build si <button type="button" class="n" data-m="m16">alguno de los 34 modelos y seeds<sup>M16</sup></button> se queda sin documentar.</p>
+      <p>Cómo se construyó, con agentes de IA, está en <a href="#agentic">IA agéntica en mi propio trabajo</a>.</p>
+      <p class="res"><span class="k">Recursos</span><a href="https://github.com/MariaSLopezOller/advanced-sql-healthcare-analytics" hreflang="en">GitHub · código, tests y resultados (en inglés)</a><a href="https://mariaslopezoller.github.io/advanced-sql-healthcare-analytics/" hreflang="en">Catálogo y linaje · dbt docs</a><span class="soon">Caso de uso y diapositivas disponibles si se piden</span></p>
+      <ul class="chips"><li class="k">Herramientas</li><li>dbt</li><li>DuckDB</li><li>SQL</li><li>Python</li><li>GitHub Actions</li><li>dbt docs</li></ul>
+    </div>
+    <div class="mpanel">
+      <span class="k">Métricas · cómo se midieron</span>
+      <ul class="metrics">
+        <li id="m14"><div class="m-top"><span class="code">M14</span><span class="m-val">50</span><span class="m-lab">tests de datos sobre 26 modelos</span></div><p>Tests de esquema y comprobaciones de la lógica, como que el total del hospital sea la suma de sus departamentos. Último build: 81 correctos, 3 avisos, 0 errores. Los 3 avisos son los defectos puestos a propósito.</p><p class="lim">Datos sintéticos y un proyecto de práctica, no un trabajo para una empresa.</p></li>
+        <li id="m15"><div class="m-top"><span class="code">M15</span><span class="m-val">6 de 10</span><span class="m-lab">reglas de calidad fallan, como estaba previsto</span></div><p>El cuadro de calidad del dato: 6 reglas fallan, 2 están dentro de la tolerancia y 2 pasan.</p><p class="lim">Los fallos son los defectos puestos en el generador, así que esto demuestra que las comprobaciones funcionan, no la calidad del dato de una clínica real.</p></li>
+        <li id="m16"><div class="m-top"><span class="code">M16</span><span class="m-val">34 de 34</span><span class="m-lab">modelos y seeds documentados y clasificados</span></div><p>Se comprueba en el pipeline después de cada build: cada uno necesita descripción y clasificación del dato, y cada modelo, un responsable. La comprobación también lista 25 columnas de datos personales.</p><p class="lim">Los responsables son roles de una clínica ficticia y los informes al final del linaje son ilustrativos.</p></li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<section class="sec" aria-labelledby="ai-title">
+  <header class="sec-head">
+    <span class="code">IA</span>
+    <h2 id="ai-title">Del dato fiable a la IA útil</h2>
+    <p>La analítica me enseñó cuándo se puede uno fiar de una cifra. Un agente de IA necesita la misma respuesta antes de actuar sobre los datos, así que empiezo por ahí.</p>
+  </header>
+  <div class="ai-grid">
+    <div class="ai-card">
+      <span class="code">Construir</span>
+      <h3>Productos de datos</h3>
+      <p>Nutr(IA) Coach, <a href="#c5">caso 05</a>: arquitectura de agentes y flujos de datos sobre APIs de LLM y Vertex AI.</p>
+      <ul class="chips"><li>Agentes de IA</li><li>LLM APIs</li><li>Vertex AI</li></ul>
+    </div>
+    <div class="ai-card">
+      <span class="code">Gobernar</span>
+      <h3>Quién revisa a la IA</h3>
+      <p>Un profesional revisa cada recomendación antes de que llegue al cliente. Ahora estudio AI Cybersecurity and Governance en Columbia Engineering.</p>
+      <ul class="chips"><li>Human in the loop</li><li>Riesgos de la IA</li><li>RGPD</li><li>Columbia, en curso</li></ul>
+    </div>
+    <div class="ai-card">
+      <span class="code">Usar</span>
+      <h3>IA en el análisis</h3>
+      <p>En JD Sports, la API de OpenAI categorizó a escala las respuestas abiertas de las encuestas (<a href="#c4">caso 04</a>). En el día a día, la IA se queda las tareas repetitivas y yo reviso el resultado antes de darlo por bueno.</p>
+      <ul class="chips"><li>API de OpenAI</li><li>Claude Code</li><li>Ollama, modelos locales</li></ul>
+    </div>
+  </div>
+  <div class="flow" aria-label="El recorrido de una recomendación en Nutr(IA) Coach">
+    <span class="k">Cómo lo diseño · Nutr(IA) Coach</span>
+    <ol>
+      <li style="--i:0">Datos del cliente</li>
+      <li style="--i:1">¿Son fiables?</li>
+      <li style="--i:2">El agente de IA redacta</li>
+      <li style="--i:3" class="human">Revisa un nutricionista</li>
+      <li style="--i:4">Cliente</li>
+    </ol>
+  </div>
+  <div class="agentic">
+    <h3 id="agentic">IA agéntica en mi propio trabajo</h3>
+    <p class="agentic-lead">Doy instrucciones a los agentes de IA como se las daría a un equipo: una tarea clara, comprobaciones de lo que vuelve y una persona que da el visto bueno.</p>
+    <ul class="rows">
+      <li><span class="code">Búsqueda de empleo</span><span class="r-name">Un sistema multiagente para mi propia búsqueda de empleo</span><span class="r-text">Diez agentes de Claude Code en cuatro fases: encontrar ofertas en portales y en los ATS de las empresas, puntuar cada una con mis criterios, adaptar el CV y la carta para las que elijo y preparar las entrevistas. Solo pasan las ofertas por encima de una nota fijada, cada dato se comprueba contra un único archivo de hechos verificados y las sesiones en paralelo comparten un registro para no pisarse el trabajo. Los agentes preparan borradores; no se envía nada sin mi OK.</span></li>
+      <li><span class="code">Caso 09</span><span class="r-name"><a href="#c9">El proyecto de calidad del dato en dbt</a></span><span class="r-text">Hecho con Claude Code: el agente escribió los modelos y los tests. El proyecto enseña la estructura y las reglas de calidad, no código escrito a mano por mí.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="evo-title">
+  <header class="sec-head">
+    <span class="code">Trayectoria</span>
+    <h2 id="evo-title">Cómo llegué hasta aquí, versión a versión</h2>
+    <p>No llegué a la analítica por un solo camino. Cada paso añadió una capa que revisa una parte distinta de una cifra. Baja para ver cómo se construye.</p>
+  </header>
+  <div class="evo" id="evo">
+    <aside class="build" aria-hidden="true">
+      <div class="b-ver"><span class="k">Versión</span><span class="b-year" id="b-year">2026</span></div>
+      <p class="b-role" id="b-role">Productos de datos, analítica y gobierno del dato y de la IA</p>
+      <ul class="layers" id="layers">
+        <li data-l="social">Investigación social<span>base</span></li>
+        <li data-l="software">Software<span>base</span></li>
+        <li data-l="analytics">Analítica de marketing digital<span>2013</span></li>
+        <li data-l="lead">Liderazgo digital<span>2015</span></li>
+        <li data-l="data">Ciencia de datos y big data<span>2016</span></li>
+        <li data-l="product">Producto y Agile<span>2017</span></li>
+        <li data-l="gov">Gobierno del dato<span>2017</span></li>
+        <li data-l="compliance">Cumplimiento (RGPD)<span>2017</span></li>
+        <li data-l="ai">Productos de datos y agentes<span>2024</span></li>
+        <li data-l="agentic">IA agéntica<span>2025</span></li>
+        <li data-l="teach">Formar a otros<span>2025</span></li>
+        <li data-l="aigov">Gobierno de la IA<span>2026</span></li>
+      </ul>
+      <p class="b-count k" id="b-count">12 de 12 capas</p>
+    </aside>
+    <ol class="log" id="log">
+      <li data-year="Base" data-role="Sociología y software" data-adds="social software">
+        <span class="code">Base</span>
+        <h3>Licenciatura en Sociología, Investigación Social y de Mercados · Técnico Superior en Desarrollo de Aplicaciones Informáticas</h3>
+        <p>Cómo preguntar a la gente y lo que una respuesta no puede decirte, y cómo recoge los datos el software de verdad.</p>
+        <ul class="adds"><li>+ investigación social</li><li>+ software</li></ul>
+      </li>
+      <li data-year="2010" data-role="Analista de investigación social" data-adds="">
+        <span class="code">2010–2013 · España</span>
+        <h3>Analista de investigación social, sector público y universidad</h3>
+        <p>Investigación social para el sector público y universidades, antes de pasar a lo digital.</p>
+      </li>
+      <li data-year="2013" data-role="Insights Analyst, Branded3" data-adds="analytics">
+        <span class="code">2013–2014 · Reino Unido</span>
+        <h3>Insights Analyst, Branded3 (agencia de SEO)</h3>
+        <p>Informes para clientes, auditorías de analítica, auditorías de UX y conversión, y tests A/B. Mi primer puesto en analítica.</p>
+        <ul class="adds"><li>+ analítica de marketing digital</li></ul>
+      </li>
+      <li data-year="2015" data-role="Head of Digital Marketing, aBoatTime y BoatGrid" data-adds="lead">
+        <span class="code">2015</span>
+        <h3>Head of Digital Marketing, aBoatTime y BoatGrid</h3>
+        <p>Mi primer equipo: cuatro personas y un presupuesto que mover canal a canal. <a href="#c6">Caso 06</a>.</p>
+        <ul class="adds"><li>+ liderazgo digital</li></ul>
+      </li>
+      <li data-year="2016" data-role="Máster en Big Data y Business Analytics" data-adds="data">
+        <span class="code">2016–2017</span>
+        <h3>Máster en Big Data y Business Analytics, Merit</h3>
+        <p>Ciencia de datos y big data: modelos a escala. Desde entonces trabajo en Python con grandes volúmenes de datos.</p>
+        <ul class="adds"><li>+ ciencia de datos y big data</li></ul>
+      </li>
+      <li data-year="2016" data-role="Digital Analyst, Goldcar · eCommerce Analyst, TUI" data-adds="">
+        <span class="code">2016–2017 · España y Reino Unido</span>
+        <h3>Digital Analyst, Goldcar · eCommerce Analyst, TUI Group</h3>
+        <p>Un plan de medición en 15 países y el customer lifetime value definido con el Chief Digital Officer en Goldcar (<a href="#c7">caso 07</a>), y después la analítica de largo radio de tres marcas en TUI.</p>
+      </li>
+      <li data-year="2017" data-role="Senior Performance Analyst, Gobierno británico" data-adds="product gov compliance">
+        <span class="code">2017–2020 · Londres</span>
+        <h3>Senior Performance Analyst, Government Digital Service y Department for Education</h3>
+        <p>Equipos ágiles multidisciplinares. Escribía las especificaciones de analítica con las que construía desarrollo, era responsable de la calidad del dato de las métricas que definía, implanté el RGPD en la unidad con el Head of Privacy y me formé como evaluadora de servicios del GDS. <a href="#c2">Caso 02</a>.</p>
+        <ul class="adds"><li>+ producto y Agile</li><li>+ gobierno del dato</li><li>+ cumplimiento (RGPD)</li></ul>
+      </li>
+      <li data-year="2021" data-role="Senior Digital Analyst, Atida (DosFarma)" data-adds="">
+        <span class="code">2021 · España</span>
+        <h3>Senior Digital Analyst, Atida Group (DosFarma)</h3>
+        <p>Una farmacia online con más de 40.000 referencias. Segmentación RFM de clientes para retención y segmentación de campañas.</p>
+      </li>
+      <li data-year="2021" data-role="Senior Digital &amp; Marketing Data Analyst, JD Sports" data-adds="">
+        <span class="code">2021–2024 · España</span>
+        <h3>Senior Digital &amp; Marketing Data Analyst, JD Sports Group</h3>
+        <p>Product owner de un programa de medición de 8 proyectos: un único juego de KPI acordado antes de cualquier dashboard. <a href="#c4">Caso 04</a>, <a href="#c3">caso 03</a> y <a href="#c8">caso 08</a>.</p>
+        <ul class="adds"><li class="more">product owner</li><li class="more">gobierno de KPI</li><li class="more">clasificación de texto con LLM</li></ul>
+      </li>
+      <li data-year="2024" data-role="Cofundadora y AI Product Manager, Nutr(IA) Coach" data-adds="ai">
+        <span class="code">Desde 2024</span>
+        <h3>Cofundadora y AI Product Manager, Nutr(IA) Coach</h3>
+        <p>Un producto de IA llevado de la idea a la beta. Diseñé la arquitectura de agentes y los flujos de datos, y un profesional revisa cada recomendación. <a href="#c5">Caso 05</a>.</p>
+        <ul class="adds"><li>+ productos de datos y agentes</li><li class="more">human in the loop</li></ul>
+      </li>
+      <li data-year="2025" data-role="IA agéntica" data-adds="agentic">
+        <span class="code">2025</span>
+        <h3>IA agéntica</h3>
+        <p>Agentes de IA en Nutr(IA) Coach y herramientas agénticas en mi trabajo diario, como Claude Code y modelos locales con Ollama (<a href="#agentic">cómo los uso</a>). A la vez, el itinerario Gen AI Leader de Google Cloud y un curso de 280 horas de IA aplicada a la empresa.</p>
+        <ul class="adds"><li>+ IA agéntica</li></ul>
+      </li>
+      <li data-year="2025" data-role="Formadora certificada" data-adds="teach">
+        <span class="code">2025</span>
+        <h3>Certificado de Profesionalidad de Docencia de la Formación Profesional para el Empleo (SSCE0110)</h3>
+        <p>Acreditada como formadora. La formación ya iba con cada dashboard que entregaba; ahora puedo darla de forma reglada.</p>
+        <ul class="adds"><li>+ formar a otros</li></ul>
+      </li>
+      <li data-year="2026" data-role="Web Data Analyst, Ingersoll Rand" data-adds="">
+        <span class="code">2026</span>
+        <h3>Web Data Analyst, Customer Data Analytics Center of Excellence, Ingersoll Rand</h3>
+        <p>Gobierno a escala: reglas de etiquetado y consentimiento para 60 marcas y más de 100 webs. <a href="#c1">Caso 01</a>.</p>
+        <ul class="adds"><li class="more">gobierno a escala</li></ul>
+      </li>
+      <li data-year="2026" data-role="Gobierno de la IA" data-adds="aigov">
+        <span class="code">2026 · en curso</span>
+        <h3>Gobierno de la IA</h3>
+        <p>AI Cybersecurity and Governance en Columbia Engineering: las reglas para decidir sobre qué puede actuar una IA.</p>
+        <ul class="adds"><li>+ gobierno de la IA</li></ul>
+      </li>
+    </ol>
+  </div>
+  <div class="out"><span class="code">Output</span><p class="out-bridge">La sociología me enseñó a averiguar qué necesitan de verdad los stakeholders, que no siempre es lo que piden. Mi base en desarrollo de software y en datos me permite convertirlo en algo que el equipo técnico pueda construir. Trabajo de puente entre los dos.</p><p>Juntas responden a una pregunta: ¿te <mark>fías de estos datos</mark> lo bastante para decidir con ellos, o para dejar que un agente de IA actúe sobre ellos?</p></div>
+</section>
+
+<section class="sec" aria-labelledby="lead">
+  <header class="sec-head">
+    <span class="code">Liderazgo</span>
+    <h2 id="lead">Cómo lidero</h2>
+    <p>He dirigido un equipo una vez. Casi todo mi liderazgo ha sido sin personas a cargo: conseguir que equipos que no dependen de mí se pongan de acuerdo en qué medir.</p>
+  </header>
+  <ul class="rows">
+    <li><span class="code">aBoatTime · 2015</span><span class="r-name">Equipo a cargo</span><span class="r-text">Dirigí un equipo de cuatro personas, tres de marketing y un diseñador, durante nueve meses, tras nueve meses con un becario a cargo.</span></li>
+    <li><span class="code">JD Sports · 2021–2024</span><span class="r-name">Dirigir un programa sin personas a cargo</span><span class="r-text">Product owner de un programa de medición de 8 proyectos. Acordé los objetivos con cada área antes de definir ningún KPI y trabajé con la PMO y con los equipos de marketing, producto, tecnología y agencias.</span></li>
+    <li><span class="code">UK GDS</span><span class="r-name">Evaluar los servicios de otros equipos</span><span class="r-text">Formada como evaluadora de servicios del GDS; participé en paneles de evaluación del Service Standard como performance analyst.</span></li>
+    <li><span class="code">Goldcar</span><span class="r-name">Apoyo a juniors</span><span class="r-text">La persona senior a la que acudían los becarios.</span></li>
+  </ul>
+</section>
+
+<section class="sec" aria-labelledby="built">
+  <header class="sec-head">
+    <span class="code">Proyectos y textos</span>
+    <h2 id="built">Lo que he construido y escrito</h2>
+  </header>
+  <ul class="rows">
+    <li><span class="code">Herramienta</span><span class="r-name"><a href="https://conversion-insight-tool.lovable.app/" hreflang="en">Calculadora de tests A/B y multivariantes</a></span><span class="r-text">Una herramienta gratuita que hice y sigo actualizando: tamaño de muestra, análisis de riesgo, CUPED y métodos cuasiexperimentales. En inglés.</span></li>
+    <li><span class="code">Repo</span><span class="r-name"><a href="https://github.com/MariaSLopezOller/advanced-sql-healthcare-analytics" hreflang="en">SQL avanzado en dbt, con defectos puestos a propósito</a></span><span class="r-text">Catorce preguntas sobre una clínica ficticia, 50 tests y un cuadro de calidad del dato. dbt y DuckDB, datos sintéticos. <a href="#c9">Caso 09</a>.</span></li>
+    <li><span class="code">Blog</span><span class="r-name"><a href="https://rebolicando.blogspot.com/2026/06/writing-analytics-specs-that-developers.html" hreflang="en">Writing analytics specs that developers can build</a></span><span class="r-text">De mi trabajo en el UK Government Digital Service. En inglés.</span></li>
+    <li><span class="code">Blog</span><span class="r-name"><a href="https://rebolicando.blogspot.com/2026/07/travel-funnels-from-other-side-naver.html" hreflang="en">Korea, Naver and reviews paid in gifts</a></span><span class="r-text">Qué mide una puntuación cuando parte de las reseñas vinieron con regalo. En inglés.</span></li>
+    <li><span class="code">Repo</span><span class="r-name"><a href="https://github.com/MariaSLopezOller/Customer_analytics_RFM" hreflang="en">Valor del cliente con machine learning</a></span><span class="r-text">Segmentos RFM contrastados con lo que hicieron después los clientes y una previsión de gasto a seis meses que tiene que superar a modelos de referencia sencillos, explicada con SHAP. Datos sintéticos. Rehecho en 2026 tras auditar mi propio código de 2024.</span></li>
+    <li><span class="code">Repo</span><span class="r-name"><a href="https://github.com/MariaSLopezOller/BigQuery-and-GCP-best-practices-for-data-tasks-ES">Recetas para datos de GA4 en BigQuery</a></span><span class="r-text">Proyecto de práctica, en castellano.</span></li>
+    <li><span class="code">Notebook</span><span class="r-name"><a href="https://github.com/MariaSLopezOller/Data-Analysis-Wikipedia-Searcher/blob/main/AD-Discovery-Hiring-Analyst-Wikipedia.ipynb" hreflang="en">Análisis de los registros de búsqueda de Wikipedia</a></span><span class="r-text">Una prueba técnica de selección que hice en Python.</span></li>
+  </ul>
+</section>
+
+<section class="sec" aria-labelledby="tools">
+  <header class="sec-head">
+    <span class="code">Herramientas y formación</span>
+    <h2 id="tools">Herramientas y formación</h2>
+  </header>
+  <div class="toolset">
+    <div><h3 class="k">Medición y gobierno</h3><ul class="chips"><li>Definición de KPI</li><li>GA4</li><li>Google Analytics 360</li><li>Matomo</li><li>Piwik</li><li>Google Tag Manager</li><li>Gestión del consentimiento</li><li>RGPD</li><li>CCPA</li></ul></div>
+    <div><h3 class="k">Análisis y dashboards</h3><ul class="chips"><li>SQL</li><li>BigQuery</li><li>Python</li><li>Tests A/B</li><li>RFM</li><li>Customer lifetime value</li><li>Machine learning</li><li>scikit-learn</li><li>Encuestas y NPS</li><li>Looker Studio</li><li>Looker</li><li>Power BI</li><li>Tableau</li></ul></div>
+    <div><h3 class="k">IA</h3><ul class="chips"><li>APIs de LLM</li><li>Vertex AI</li><li>Diseño human in the loop</li><li>IA explicable (SHAP)</li></ul></div>
+    <div><h3 class="k">Forma de trabajar</h3><ul class="chips"><li>Agile</li><li>Product ownership</li><li>Priorización del backlog</li><li>Jira</li><li>Professional Scrum Master I</li></ul></div>
+  </div>
+  <ul class="rows">
+    <li><span class="code">En curso</span><span class="r-name">AI Cybersecurity and Governance</span><span class="r-text">Columbia Engineering (Columbia Plus), 2026.</span></li>
+    <li><span class="code">Máster · 2016–2017</span><span class="r-name">Big Data y Business Analytics</span><span class="r-text">Telefónica y UEMC. Merit.</span></li>
+    <li><span class="code">Licenciatura</span><span class="r-name">Sociología</span><span class="r-text">Investigación Social y de Mercados.</span></li>
+    <li><span class="code">Ciclo superior</span><span class="r-name">Técnico Superior en Desarrollo de Aplicaciones Informáticas</span><span class="r-text">Formación Profesional de grado superior.</span></li>
+    <li><span class="code">2025</span><span class="r-name">Certificado de Profesionalidad de Docencia de la Formación Profesional para el Empleo</span><span class="r-text">SSCE0110, formación de formadores.</span></li>
+    <li><span class="code">2024</span><span class="r-name"><a href="https://bit.ly/3TqAshc">Designing and Building AI Products and Services</a></span><span class="r-text">MIT xPRO.</span></li>
+    <li><span class="code">Certificados</span><span class="r-name">Google Business Intelligence · Professional Scrum Master I</span><span class="r-text"><a href="https://www.teamsimmer.com/simmer-certificate-verification/132E06A38-132E01BB3-2F365D8/" hreflang="en">Curso de GA4 de Simmer</a>.</span></li>
+  </ul>
+</section>
+</main>
+
+<footer id="contact">
+  <span><b>Fin de la especificación</b> · abierta a puestos de analítica, productos de datos y gobierno del dato y de la IA</span>
+  <span><span class="nw"><a href="#" data-mail="latigid.zepol.airam">Email</a> <button type="button" class="copy-mail" data-mail="latigid.zepol.airam">Copiar email</button></span> · <a href="https://mariaslopezoller.github.io">CV</a> · <a href="https://www.linkedin.com/in/mariaslopezoller">LinkedIn</a> · <a href="https://rebolicando.blogspot.com">Blog</a> · <a href="https://www.cloudskillsboost.google/public_profiles/ef9a6670-fad9-4b9f-9b27-79b646f11bc9">Google Cloud</a> · <a href="../" hreflang="en" lang="en">English</a></span>
+</footer>
+</div>
+
+<script>
+(function () {
+  var motion = document.documentElement.classList.contains("anim");
+
+  /* Numbers in the text: on wide screens, light up the metric beside the story;
+     on narrow ones, open it right under the paragraph so the reader doesn't lose their place. */
+  var nums = [].slice.call(document.querySelectorAll(".n"));
+  var wide = window.matchMedia("(min-width: 60rem)");
+  function closeAll() {
+    nums.forEach(function (n) { n.setAttribute("aria-expanded", "false"); n.removeAttribute("aria-controls"); });
+    [].forEach.call(document.querySelectorAll(".metrics li.on"), function (l) { l.classList.remove("on"); });
+    [].forEach.call(document.querySelectorAll(".inline-m"), function (b) { b.remove(); });
+  }
+  nums.forEach(function (btn) {
+    btn.setAttribute("aria-describedby", btn.dataset.m);
+    btn.setAttribute("aria-expanded", "false");
+    btn.addEventListener("click", function () {
+      var open = btn.getAttribute("aria-expanded") === "true";
+      closeAll();
+      if (open) return;
+      var row = document.getElementById(btn.dataset.m);
+      btn.setAttribute("aria-expanded", "true");
+      row.classList.add("on");
+      if (wide.matches) {
+        btn.setAttribute("aria-controls", row.id);
+        var r = row.getBoundingClientRect();
+        if (r.top < 0 || r.bottom > window.innerHeight) row.scrollIntoView({ block: "center", behavior: motion ? "smooth" : "auto" });
+      } else {
+        var box = document.createElement("div");
+        box.className = "inline-m"; box.id = "inline-" + row.id;
+        box.innerHTML = row.innerHTML;
+        btn.closest("p").insertAdjacentElement("afterend", box);
+        btn.setAttribute("aria-controls", box.id);
+      }
+    });
+  });
+
+  /* Changelog: as each version reaches the middle of the screen, the build panel catches up. */
+  var evo = document.getElementById("evo");
+  var steps = [].slice.call(document.querySelectorAll("#log > li"));
+  var layers = [].slice.call(document.querySelectorAll("#layers li"));
+  var log = document.getElementById("log");
+  var yearEl = document.getElementById("b-year"), roleEl = document.getElementById("b-role"), countEl = document.getElementById("b-count");
+  var active = -1;
+  function build(k) {
+    if (k === active) return;
+    active = k;
+    var have = {};
+    steps.forEach(function (s, j) {
+      s.classList.toggle("on", j === k);
+      s.classList.toggle("done", j < k);
+      if (j <= k) (s.dataset.adds || "").split(" ").forEach(function (a) { if (a) have[a] = j; });
+    });
+    var lit = 0;
+    layers.forEach(function (l) {
+      var on = l.dataset.l in have;
+      if (on) lit++;
+      l.classList.toggle("lit", on);
+      l.classList.toggle("new", on && have[l.dataset.l] === k);
+    });
+    yearEl.textContent = steps[k].dataset.year;
+    roleEl.textContent = steps[k].dataset.role;
+    countEl.textContent = lit + " de " + layers.length + " capas";
+    var a = steps[k].offsetTop + 12, h = log.offsetHeight;
+    log.style.setProperty("--progress", Math.min(100, (a / h) * 100) + "%");
+  }
+  if ("IntersectionObserver" in window && steps.length) {
+    evo.classList.add("js");
+    build(0);
+    var so = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) build(steps.indexOf(e.target)); });
+    }, { rootMargin: "-45% 0px -45% 0px" });
+    steps.forEach(function (s) { so.observe(s); });
+  }
+
+})();
+
+/* Email: the address is only assembled when someone uses the link, so it never sits in the page source for scrapers. */
+document.querySelectorAll("a[data-mail]").forEach(function (a) {
+  function set() { a.href = "mailto:" + a.getAttribute("data-mail").split("").reverse().join("") + "@" + ["gmail", "com"].join("."); }
+  ["pointerdown", "focus", "click"].forEach(function (ev) { a.addEventListener(ev, set); });
+});
+document.querySelectorAll("button.copy-mail").forEach(function (b) {
+  b.setAttribute("aria-live", "polite");
+  b.addEventListener("click", function () {
+    var addr = b.getAttribute("data-mail").split("").reverse().join("") + "@" + ["gmail", "com"].join(".");
+    function done(t) { b.textContent = t; setTimeout(function () { b.textContent = "Copiar email"; }, 2500); }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(addr).then(function () { done("Copiado"); }, function () { done(addr); });
+    else done(addr);
+  });
+});
+/* The AI flow plays once, when it first comes into view. */
+(function () {
+  var fl = document.querySelector(".flow");
+  if (!fl) return;
+  if (!("IntersectionObserver" in window)) { fl.classList.add("play"); return; }
+  var o = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { fl.classList.add("play"); o.disconnect(); } }, { threshold: 0.6 });
+  o.observe(fl);
+})();
+</script>
+</body>
+</html>
